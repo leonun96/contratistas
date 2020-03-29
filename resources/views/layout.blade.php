@@ -21,14 +21,13 @@
 
 	<!-- Sidebar -->
 	<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-	  <!-- Sidebar - Brand -->
-	  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-		<div class="sidebar-brand-icon rotate-n-15">
-		  <i class="fas fa-laugh-wink"></i>
-		</div>
-		<div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-	  </a>
+		<!-- Sidebar - Brand -->
+		<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+			<div class="sidebar-brand-icon rotate-n-15">
+				<i class="fas fa-laugh-wink"></i>
+			</div>
+			<div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+		</a>
 
 	  <!-- Divider -->
 	  <hr class="sidebar-divider my-0">
@@ -321,15 +320,13 @@
 
 		</nav>
 		<!-- End of Topbar -->
-
-		<!-- Begin Page Content -->
+		@yield('content')
+		{{-- <!-- Begin Page Content -->
 		<div class="container-fluid">
-
-		  <!-- Page Heading -->
-		  <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-
+			<!-- Page Heading -->
+			<h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 		</div>
-		<!-- /.container-fluid -->
+		<!-- /.container-fluid --> --}}
 
 	  </div>
 	  <!-- End of Main Content -->
