@@ -28,16 +28,14 @@
 			</div>
 			<div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
 		</a>
-
-	  <!-- Divider -->
-	  <hr class="sidebar-divider my-0">
-
-	  <!-- Nav Item - Dashboard -->
-	  <li class="nav-item">
-		<a class="nav-link" href="index.html">
-		  <i class="fas fa-fw fa-tachometer-alt"></i>
-		  <span>Dashboard</span></a>
-	  </li>
+		<!-- Divider -->
+		<hr class="sidebar-divider my-0">
+		<!-- Nav Item - Dashboard -->
+		<li class="nav-item">
+			<a class="nav-link" href="index.html">
+				<i class="fas fa-fw fa-tachometer-alt"></i><span>Dashboard</span>
+			</a>
+		</li>
 
 	  <!-- Divider -->
 	  <hr class="sidebar-divider">
@@ -321,12 +319,6 @@
 		</nav>
 		<!-- End of Topbar -->
 		@yield('content')
-		{{-- <!-- Begin Page Content -->
-		<div class="container-fluid">
-			<!-- Page Heading -->
-			<h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-		</div>
-		<!-- /.container-fluid --> --}}
 
 	  </div>
 	  <!-- End of Main Content -->
@@ -371,15 +363,15 @@
 	</div>
   </div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Bootstrap core JavaScript-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+	<!-- Custom scripts for all pages-->
+	<script src="js/sb-admin-2.min.js"></script>
 
 </body>
 
