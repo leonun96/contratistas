@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>SB Admin 2 - Blank</title>
+	<title>Contratista Orrego</title>
 	<!-- Custom fonts for this template-->
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -26,7 +26,7 @@
 			<div class="sidebar-brand-icon rotate-n-15">
 				<i class="fas fa-laugh-wink"></i>
 			</div>
-			<div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+			<div class="sidebar-brand-text mx-3">Contratista <sup>Orrego</sup></div>
 		</a>
 		<!-- Divider -->
 		<hr class="sidebar-divider my-0">
@@ -42,14 +42,43 @@
 
 	  <!-- Heading -->
 	  <div class="sidebar-heading">
-		Interface
+		Funciones
 	  </div>
+	  <!-- Nav Item - Pages Collapse Menu -->
+	  <li class="nav-item">
+		<a class="nav-link" href="charts.html">
+		  <i class="fas fa-address-book"></i>
+		  <span>Asistencia</span></a>
+	  </li>
+	  <!-- Nav Item - Charts -->
+	  <li class="nav-item">
+		<a class="nav-link" href="{{route('listaTrabajadores')}}">
+		  <i class="fas fa-users"></i>
+		  <span>Trabajadores</span></a>
+	  </li>
 
+	  <!-- Nav Item - Tables -->
+	  <li class="nav-item">
+		<a class="nav-link" href="tables.html">
+		  <i class="fas fa-fw fa-table"></i>
+		  <span>Costos Diarios</span></a>
+	  </li>
+
+
+	  
+
+	  <!-- Divider -->
+	  <hr class="sidebar-divider">
+
+	  <!-- Heading -->
+	  <div class="sidebar-heading">
+		Mantenedor
+	  </div>
 	  <!-- Nav Item - Pages Collapse Menu -->
 	  <li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
 		  <i class="fas fa-fw fa-cog"></i>
-		  <span>Components</span>
+		  <span>Usuarios</span>
 		</a>
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 		  <div class="bg-white py-2 collapse-inner rounded">
@@ -77,48 +106,7 @@
 		</div>
 	  </li>
 
-	  <!-- Divider -->
-	  <hr class="sidebar-divider">
-
-	  <!-- Heading -->
-	  <div class="sidebar-heading">
-		Addons
-	  </div>
-
-	  <!-- Nav Item - Pages Collapse Menu -->
-	  <li class="nav-item active">
-		<a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-		  <i class="fas fa-fw fa-folder"></i>
-		  <span>Pages</span>
-		</a>
-		<div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-		  <div class="bg-white py-2 collapse-inner rounded">
-			<h6 class="collapse-header">Login Screens:</h6>
-			<a class="collapse-item" href="login.html">Login</a>
-			<a class="collapse-item" href="register.html">Register</a>
-			<a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-			<div class="collapse-divider"></div>
-			<h6 class="collapse-header">Other Pages:</h6>
-			<a class="collapse-item" href="404.html">404 Page</a>
-			<a class="collapse-item active" href="blank.html">Blank Page</a>
-		  </div>
-		</div>
-	  </li>
-
-	  <!-- Nav Item - Charts -->
-	  <li class="nav-item">
-		<a class="nav-link" href="charts.html">
-		  <i class="fas fa-fw fa-chart-area"></i>
-		  <span>Charts</span></a>
-	  </li>
-
-	  <!-- Nav Item - Tables -->
-	  <li class="nav-item">
-		<a class="nav-link" href="tables.html">
-		  <i class="fas fa-fw fa-table"></i>
-		  <span>Tables</span></a>
-	  </li>
-
+	  
 	  <!-- Divider -->
 	  <hr class="sidebar-divider d-none d-md-block">
 
@@ -289,27 +277,23 @@
 			<!-- Nav Item - User Information -->
 			<li class="nav-item dropdown no-arrow">
 			  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+				<span class="mr-2 d-none d-lg-inline text-gray-600 small">Orrego</span>
 				<img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
 			  </a>
 			  <!-- Dropdown - User Information -->
 			  <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 				<a class="dropdown-item" href="#">
 				  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-				  Profile
+				  Perfil
 				</a>
 				<a class="dropdown-item" href="#">
 				  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-				  Settings
-				</a>
-				<a class="dropdown-item" href="#">
-				  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-				  Activity Log
+				  Configuracion
 				</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
 				  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-				  Logout
+				  Cerrar Sesion
 				</a>
 			  </div>
 			</li>
@@ -327,7 +311,7 @@
 	  <footer class="sticky-footer bg-white">
 		<div class="container my-auto">
 		  <div class="copyright text-center my-auto">
-			<span>Copyright &copy; Your Website 2019</span>
+			<span>Copyright &copy; <a href="http://desarrolladores.cl/">desarrolladores.cl</a></span>
 		  </div>
 		</div>
 	  </footer>

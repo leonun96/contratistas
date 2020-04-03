@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'InicioController@index')->name('index');
+
+Route::get('/control/lista-trabajadores', 'TrabajadoresController@index')->name('listaTrabajadores');
