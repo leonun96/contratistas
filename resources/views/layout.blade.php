@@ -50,9 +50,12 @@
 		<li class="nav-item">
 			<a class="nav-link" href="{{ route('tabajadores.index') }}"><i class="fas fa-users"></i><span>Trabajadores</span></a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{ route('labores.index') }}"><i class="fas fa-briefcase"></i><span>Labores</span></a>
+		</li>
 		<!-- Nav Item - Tables -->
 		<li class="nav-item">
-			<a class="nav-link" href="tables.html"><i class="fas fa-fw fa-table"></i><span>Costos Diarios</span></a>
+			<a class="nav-link" href="tables.html"><i class="fas fa-money-bill-alt"></i><span>Costos Diarios</span></a>
 		</li>
 		<!-- Divider -->
 		<hr class="sidebar-divider">
@@ -295,10 +298,12 @@
 
 <!-- Core plugin JavaScript-->
 <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+<script type="text/javascript" src="{{asset('DataTables/datatables.min.js')}}"></script>
 
 <!-- Custom scripts for all pages-->
 <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 @yield('js')
+
 
 </body>
 

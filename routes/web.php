@@ -16,5 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'InicioController@index')->name('index');
 
 Route::group(['prefix' => 'trabajadores'], function() {
-	Route::get('/', 'TrabajadoresController@index')->name('tabajadores.index');
+	Route::get('/', 'TrabajadoresController@index')->name('tabajadores.index');	
+
+
 });
+
+Route::group(['prefix' => 'labores'], function() {
+	Route::get('/', 'LaboresController@index')->name('labores.index');
+});
+
