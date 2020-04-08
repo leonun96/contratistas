@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+// use Flash;
+use Laracasts\Flash\Flash;
 
 class InicioController extends Controller
 {
@@ -14,6 +16,7 @@ class InicioController extends Controller
 
 	public function login ()
 	{
+		Flash::success('Bienvenido!');
 		return view('login');
 	}
 
