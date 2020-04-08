@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/login', 'InicioController@login')->name('login');
+
 Route::get('/', 'InicioController@index')->name('index');
 
 Route::group(['prefix' => 'usuarios'], function() {
