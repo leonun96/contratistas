@@ -254,6 +254,16 @@
 					</li>
 				</ul>
 			</nav>
+			@include('flash::message')
+			@if ($errors->any())
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+					<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+			@endif
 			<!-- End of Topbar -->
 			@yield('content')
 		</div>
@@ -278,15 +288,15 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Terminamos?</h5>
 				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">×</span>
 				</button>
 			</div>
-			<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+			<div class="modal-body">Seleccione "Salir" si desea terminar la sesión.</div>
 			<div class="modal-footer">
-				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-				<a class="btn btn-primary" href="login.html">Logout</a>
+				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+				<a class="btn btn-primary" href="{{ route('logout') }}">Salir</a>
 			</div>
 		</div>
 	</div>
@@ -302,6 +312,9 @@
 
 <!-- Custom scripts for all pages-->
 <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+<script>
+	$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
 @yield('js')
 
 

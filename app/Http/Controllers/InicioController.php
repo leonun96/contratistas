@@ -20,6 +20,12 @@ class InicioController extends Controller
 		return view('login');
 	}
 
+	public function logout ()
+	{
+		Auth::logout();
+		return redirect()->route('login');
+	}
+
 	public function logueo (Request $request)
 	{
 		$val = $request->validate([
