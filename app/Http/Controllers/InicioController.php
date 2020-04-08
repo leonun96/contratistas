@@ -16,7 +16,7 @@ class InicioController extends Controller
 
 	public function login ()
 	{
-		Flash::success('Bienvenido!');
+		// Flash::success('Bienvenido!');
 		return view('login');
 	}
 
@@ -25,7 +25,16 @@ class InicioController extends Controller
 		$val = $request->validate([
 			'correo' => 'required',
 			'password' => 'required',
+		],[
+			'correo.required' => 'Debe ingresar su correo',
+			'password.required' => 'Debe ingresar su contraseña',
 		]);
-		dd($request);
+		if (Auth::attempt(['correo' => $request->correo, 'password' => $request->password])) {
+			Flash::success('Bienvenido '.auth()->user()->nombre);
+			return redirect()->route('index');
+		} else {
+			Flash::error('Usuario o contraseña incorrectos');
+			return redirect()->back();
+		}
 	}
 }

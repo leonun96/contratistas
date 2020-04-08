@@ -71,6 +71,15 @@
 		</div>
 	</div>
 	@include('flash::message')
+	@if ($errors->any())
+	<div class="alert alert-danger">
+		<ul>
+			@foreach ($errors->all() as $error)
+			<li>{{ $error }}</li>
+			@endforeach
+		</ul>
+	</div>
+	@endif
 	<!-- Bootstrap core JavaScript-->
 	<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 	<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -80,6 +89,9 @@
 
 	<!-- Custom scripts for all pages-->
 	<script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+	<script>
+		$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+	</script>
 
 </body>
 
