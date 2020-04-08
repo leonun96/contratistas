@@ -308,7 +308,7 @@
 
 <!-- Core plugin JavaScript-->
 <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-<script type="text/javascript" src="{{asset('DataTables/datatables.min.js')}}"></script>
+<script src="{{ asset('DataTables/datatables.min.js') }}"></script>
 
 <!-- Custom scripts for all pages-->
 <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
