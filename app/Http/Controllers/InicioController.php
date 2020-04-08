@@ -16,4 +16,13 @@ class InicioController extends Controller
 	{
 		return view('login');
 	}
+
+	public function logueo (Request $request)
+	{
+		$val = $request->validate([
+			'correo' => 'required',
+			'password' => 'required',
+		]);
+		dd($request);
+	}
 }

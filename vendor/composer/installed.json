@@ -1145,7 +1145,8 @@
                 "name": "Jakub Onderka",
                 "email": "jakub.onderka@gmail.com"
             }
-        ]
+        ],
+        "abandoned": "php-parallel-lint/php-console-color"
     },
     {
         "name": "jakub-onderka/php-console-highlighter",
@@ -1193,7 +1194,64 @@
                 "homepage": "http://www.acci.cz/"
             }
         ],
-        "description": "Highlight PHP code in terminal"
+        "description": "Highlight PHP code in terminal",
+        "abandoned": "php-parallel-lint/php-console-highlighter"
+    },
+    {
+        "name": "laracasts/flash",
+        "version": "3.1",
+        "version_normalized": "3.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/laracasts/flash.git",
+            "reference": "150d4348477db31b9a93ccd07f713e3d0513b3bf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/laracasts/flash/zipball/150d4348477db31b9a93ccd07f713e3d0513b3bf",
+            "reference": "150d4348477db31b9a93ccd07f713e3d0513b3bf",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~5.0|^6.0|^7.0",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "dev-master",
+            "phpunit/phpunit": "^6.1"
+        },
+        "time": "2020-03-03T15:50:52+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Laracasts\\Flash\\FlashServiceProvider"
+                ],
+                "aliases": {
+                    "Flash": "Laracasts\\Flash\\Flash"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Laracasts\\Flash": "src/"
+            },
+            "files": [
+                "src/Laracasts/Flash/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jeffrey Way",
+                "email": "jeffrey@laracasts.com"
+            }
+        ],
+        "description": "Easy flash notifications"
     },
     {
         "name": "laravel/framework",
