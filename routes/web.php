@@ -25,6 +25,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::group(['prefix' => 'usuarios'], function() {
 		Route::get('/', 'UsuariosController@index')->name('usuarios.index');
+		
+		Route::get('create', 'UsuariosController@create')->name('usuarios.create');
 	});
 
 	Route::group(['prefix' => 'trabajadores'], function() {
