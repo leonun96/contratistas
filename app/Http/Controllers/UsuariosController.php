@@ -10,12 +10,12 @@ class UsuariosController extends Controller
 {
 	public function index ()
 	{
-		return view('usuarios.index');
+
+		$usuarios = Usuarios::all();
+		return view('usuarios.index')
+		->with('usuarios',$usuarios);
 	}
-	public function test ()
-	{
-		return view('usuarios.nuevo');
-	}
+	
 	public function store (Request $request)
 	{
 		// 
