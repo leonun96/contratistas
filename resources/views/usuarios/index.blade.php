@@ -11,7 +11,6 @@
 							<th>Nombres</th>
 							<th>Correo</th>
 							<th></th>
-							<th></th>
 
 						</tr>
 					</thead>
@@ -21,9 +20,6 @@
 							<td>{{ $user->id }}</td>
 							<td>{{ $user->nombre }}</td>
 							<td>{{ $user->correo }}</td>
-							<td style="text-align: center;">
-								<a href="#" class="editar" data-toggle="modal" data-target="#modal" id=""><i class="fas fa-edit"></i></a>
-							</td>
 							<td style="text-align: center;">
 								<a href=""><i class="fas fa-trash-alt"></i></a>
 							</td>
