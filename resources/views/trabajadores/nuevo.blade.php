@@ -33,10 +33,10 @@
 							</div>
 							<div class="form-group row">
 								<div class="col-sm-6 mb-3 mb-sm-0">
-									<input type="date" class="form-control form-control-user" name="fechanacimiento" id="exampleInputPassword" placeholder="Ingrese Fecha">
+									<input type="date" class="form-control form-control-user" name="nacimiento" id="exampleInputPassword" placeholder="Ingrese Fecha">
 								</div>
 								<div class="col-sm-6" >
-									<select class="form-control" name="afp">
+									<select class="form-control" name="afp_id">
 										<option>Seleccione AFP</option>
 										<option value="1">Capital</option>
 									</select>
