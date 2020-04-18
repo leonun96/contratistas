@@ -16,6 +16,11 @@ class UsuariosController extends Controller
 		->with('usuarios',$usuarios);
 	}
 	
+	public function create ()
+	{
+		return view('usuarios.nuevo');
+	}
+
 	public function store (Request $request)
 	{
 		// 
