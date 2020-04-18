@@ -5,7 +5,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 	<!-- Page Heading -->
-	<a href="" class="btn btn-dark"><i class="fas fa-users"></i> Nuevo Trabajador</a>
+	<a href="{{ route('trabajadores.create') }}" class="btn btn-dark"><i class="fas fa-users"></i> Nuevo Trabajador</a>
 	<br>
 	<br>
 	<table id="table_id" class="table table-striped table-bordered display table-hover" style="width:100%">

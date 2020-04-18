@@ -32,9 +32,12 @@ Route::group(['middleware' => 'auth'], function() {
 	});
 
 	Route::group(['prefix' => 'trabajadores'], function() {
-		Route::get('/', 'TrabajadoresController@index')->name('tabajadores.index');	
+		Route::get('/', 'TrabajadoresController@index')->name('tabajadores.index');
 
 
+	Route::get('create', 'TrabajadoresController@create')->name('trabajadores.create');
+
+	Route::post('store', 'TrabajadoresController@store')->name('trabajadores.store');
 	});
 
 	Route::group(['prefix' => 'labores'], function() {
