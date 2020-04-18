@@ -43,4 +43,14 @@ class TrabajadoresController extends Controller
 		Flash::success('Nuevo trabajador creado exitosamente');
 		return redirect()->back();
 	}
+
+	    public function eliminar($id)
+    {
+
+	        $trabajador = Trabajadores::find($id);
+	        $trabajador->delete();
+            Flash::success('Trabajador eliminado');
+            return redirect()->back();
+
+    }
 }

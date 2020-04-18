@@ -39,10 +39,18 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::post('store', 'TrabajadoresController@store')->name('trabajadores.store');
 	});
+		Route::get('trabajadores/{id}/eliminar', 'TrabajadoresController@eliminar')->name('trabajadores.eliminar');
 
 	Route::group(['prefix' => 'labores'], function() {
+
 		Route::get('/', 'LaboresController@index')->name('labores.index');
+			Route::get('create', 'LaboresController@create')->name('labores.create');
+
+	Route::post('store', 'LaboresController@store')->name('labores.store');
+			Route::get('labores/{id}/eliminar', 'LaboresController@eliminar')->name('labores.eliminar');
+
 	});
+
 });
 
 
