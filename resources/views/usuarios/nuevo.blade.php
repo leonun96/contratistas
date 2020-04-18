@@ -11,7 +11,7 @@
 						<div class="text-center">
 							<h1 class="h4 text-gray-900 mb-4">Crea un nuevo usuario del sistema</h1>
 						</div>
-						<form class="user">
+						<form class="user" action="{{ route('usuarios.store') }}" method="post">
 							@csrf
 							<div class="form-group {{-- row --}}">
 								{{-- <div class="col-sm-6 mb-3 mb-sm-0"> --}}
@@ -22,14 +22,14 @@
 								</div> --}}
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control form-control-user" name="correo" id="exampleInputEmail" placeholder="Email Address">
+								<input type="email" class="form-control form-control-user" name="correo" id="exampleInputEmail" placeholder="Direccion de correo">
 							</div>
 							<div class="form-group row">
 								<div class="col-sm-6 mb-3 mb-sm-0">
 									<input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password">
 								</div>
 								<div class="col-sm-6">
-									<input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
+									<input type="password" name="password_confirmation" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repetir Password">
 								</div>
 							</div>
 							<button type="submit" class="btn btn-primary btn-user btn-block">Registrar</button>

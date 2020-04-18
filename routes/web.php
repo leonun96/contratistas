@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('/', 'UsuariosController@index')->name('usuarios.index');
 		
 		Route::get('create', 'UsuariosController@create')->name('usuarios.create');
+
+		Route::post('store', 'UsuariosController@store')->name('usuarios.store');
 	});
 
 	Route::group(['prefix' => 'trabajadores'], function() {
