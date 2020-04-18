@@ -25,20 +25,20 @@ class TrabajadoresController extends Controller
 	{
 		$val = $request->validate([
 			'nombre' => 'required',
-			'apellido' => 'required',
+			'rut' => 'required',
 			'correo' => 'required|email',
 			'fecha-nacimiento' => 'required',
 			'afp' => 'required',
 		],[
 			'nombre.required' => 'Debe ingresar el nombre del trabajador',
-			'apellido.required' => 'Debe ingresar el apellido del trabajador',
+			'rut.required' => 'Debe ingresar el rut de trabajador',
 			'correo.required' => 'Debe ingresar el correo del trabajador',
 			'correo.email' => 'Debe ingresar un correo valido para el trabajador',
 			'fecha-nacimiento.required' => 'Debe ingresar la fecha de nacimiento del trabajador',
-			'afp.required' => 'Debe ingresar AFP del trabajador'
+			'afp.required' => 'Debe ingresar AFP del trabajador',
 
 		]);
-		Usuarios::create($val);
+		Trabajadores::create($val);
 		Flash::success('Nuevo trabajador creado exitosamente');
 		return redirect()->back();
 	}
