@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 		Route::get('{id}/delete', 'UsuariosController@delete')->name('usuarios.delete');
 
-		Route::put('{id}/actualizar', 'UsuariosController@actualizar')->name('usuarios.actualizar')
+		Route::put('{id}/actualizar', 'UsuariosController@actualizar')->name('usuarios.actualizar');
 	});
 
 	Route::group(['prefix' => 'trabajadores'], function() {
@@ -55,6 +55,11 @@ Route::group(['middleware' => 'auth'], function() {
 
 		Route::post('store', 'LaboresController@store')->name('labores.store');
 			Route::get('labores/{id}/eliminar', 'LaboresController@eliminar')->name('labores.eliminar');
+
+	});
+
+	Route::group(['prefix' => 'costos'], function() {
+		Route::get('/', 'CostosController@index')->name('costos');
 
 	});
 
