@@ -127,6 +127,7 @@
 			$("#rut").val(response.rut);
 			$("#correo").val(response.correo);
 			$("#nacimiento").val(response.nacimiento);
+			$(`#afp option[value='${response.afp}']`).attr("selected", true);
 		})
 		.fail(function() {
 			// console.log("error");
