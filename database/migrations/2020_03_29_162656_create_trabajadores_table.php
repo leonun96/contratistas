@@ -19,7 +19,7 @@ class CreateTrabajadoresTable extends Migration
             $table->string('rut',191)->unique();
             $table->string('correo')->nullable();
             $table->date('nacimiento')->nullable();
-            $table->foreignId('afp_id');
+            $table->string('afp')->nullable();
             $table->timestamps();
         });
     }

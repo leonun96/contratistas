@@ -36,9 +36,10 @@
 									<input type="date" class="form-control form-control-user" name="nacimiento" id="exampleInputPassword" placeholder="Ingrese Fecha">
 								</div>
 								<div class="col-sm-6" >
-									<select class="form-control" name="afp_id">
+									<select class="form-control" name="afp">
 										<option>Seleccione AFP</option>
-										<option value="1">Capital</option>
+										<option value="Modelo">Modelo</option>
+										<option value="Capital">Capital</option>
 									</select>
 								</div>
 							</div>

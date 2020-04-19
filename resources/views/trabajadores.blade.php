@@ -23,14 +23,14 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($trabajadores as $tra)
+						@foreach($trabajadores as $key => $tra)
 						<tr>
-							<td>{{ $tra->id }}</td>
+							<td>{{ ($key + 1) }}</td>
 							<td>{{ $tra->nombre }}</td>
 							<td>{{ $tra->rut }}</td>
 							<td>{{ $tra->correo }}</td>
 							<td>{{ $tra->nacimiento }}</td>
-							<td>{{ $tra->afp_id }}</td>
+							<td>{{ $tra->afp }}</td>
 							<td style="text-align: center;">
 								<a href="#" class="editar" data-toggle="modal" data-target="#modal" id=""><i class="fas fa-edit"></i></a>
 							</td>
