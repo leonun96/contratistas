@@ -59,6 +59,41 @@
 					</button>
 				</div>
 				<div class="modal-body">
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Nombre</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" name="nombre" id="nombre">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Rut</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" name="rut" id="rut">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Correo</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="correo" name="correo">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">AFP</label>
+						<div class="col-sm-10">
+							<select name="afp" id="afp" class="form-control">
+								<option value="Modelo">Modelo</option>
+								<option value="Capital">Capital</option>
+								<option value="Habitat">Habitat</option>
+								<option value="Planvital">Planvital</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-4 col-form-label">Fecha de nacimiento</label>
+						<div class="col-sm-8">
+							<input type="date" class="form-control" id="nacimiento" name="nacimiento">
+						</div>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
@@ -82,6 +117,24 @@
 		let id = $(this).attr('data-id');
 		let url = `/trabajadores/${id}/editar`;
 		$("#form_").attr('action', url);
+		$.ajax({
+			url: `/trabajadores/${id}/data`,
+			type: 'GET',
+		})
+		.done(function(response) {
+			// console.log(response);
+			$("#nombre").val(response.nombre);
+			$("#rut").val(response.rut);
+			$("#correo").val(response.correo);
+			$("#nacimiento").val(response.nacimiento);
+		})
+		.fail(function() {
+			// console.log("error");
+		})
+		.always(function() {
+			// console.log("complete");
+		});
+		
 	});
 </script>
 
