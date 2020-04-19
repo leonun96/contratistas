@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('create', 'UsuariosController@create')->name('usuarios.create');
 
 		Route::post('store', 'UsuariosController@store')->name('usuarios.store');
+
+		Route::get('{id}/delete', 'UsuariosController@delete')->name('usuarios.delete');
 	});
 
 	Route::group(['prefix' => 'trabajadores'], function() {

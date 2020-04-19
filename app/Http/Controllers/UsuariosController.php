@@ -11,7 +11,7 @@ class UsuariosController extends Controller
 	public function index ()
 	{
 
-		$usuarios = Usuarios::all();
+		$usuarios = Usuarios::whereNotIn('id',[ auth()->user()->id])->get();
 		return view('usuarios.index')
 		->with('usuarios',$usuarios);
 	}
@@ -38,6 +38,12 @@ class UsuariosController extends Controller
 		$val['password'] = bcrypt($val['password']);
 		Usuarios::create($val);
 		Flash::success('Nuevo usuario creado exitosamente');
+		return redirect()->back();
+	}
+	public function delete ($id)
+	{
+		Usuarios::find($id)->delete();
+		Flash::error('Usuario eliminado del sistema');
 		return redirect()->back();
 	}
 }
