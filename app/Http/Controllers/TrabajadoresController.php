@@ -43,6 +43,10 @@ class TrabajadoresController extends Controller
 		Flash::success('Nuevo trabajador creado exitosamente');
 		return redirect()->back();
 	}
+	public function editar (Request $request, $id)
+	{
+		dd($request, $id);
+	}
 
 	public function eliminar($id)
 	{
@@ -52,3 +56,13 @@ class TrabajadoresController extends Controller
 		return redirect()->back();
 	}
 }
+
+
+
+
+
+
+
+
+
+

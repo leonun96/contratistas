@@ -36,6 +36,9 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::group(['prefix' => 'trabajadores'], function() {
 		Route::get('/', 'TrabajadoresController@index')->name('tabajadores.index');
 
+		Route::get('{id}/data', 'TrabajadoresController@data');
+
+		Route::put('/{id}/editar', 'TrabajadoresController@editar')->name('tabajadores.editar');
 
 	Route::get('create', 'TrabajadoresController@create')->name('trabajadores.create');
 
