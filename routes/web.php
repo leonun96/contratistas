@@ -31,6 +31,8 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::post('store', 'UsuariosController@store')->name('usuarios.store');
 
 		Route::get('{id}/delete', 'UsuariosController@delete')->name('usuarios.delete');
+
+		Route::put('{id}/actualizar', 'UsuariosController@actualizar')->name('usuarios.actualizar')
 	});
 
 	Route::group(['prefix' => 'trabajadores'], function() {
@@ -40,9 +42,9 @@ Route::group(['middleware' => 'auth'], function() {
 
 		Route::put('/{id}/editar', 'TrabajadoresController@editar')->name('tabajadores.editar');
 
-	Route::get('create', 'TrabajadoresController@create')->name('trabajadores.create');
+		Route::get('create', 'TrabajadoresController@create')->name('trabajadores.create');
 
-	Route::post('store', 'TrabajadoresController@store')->name('trabajadores.store');
+		Route::post('store', 'TrabajadoresController@store')->name('trabajadores.store');
 	});
 		Route::get('trabajadores/{id}/eliminar', 'TrabajadoresController@eliminar')->name('trabajadores.eliminar');
 
@@ -51,7 +53,7 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('/', 'LaboresController@index')->name('labores.index');
 			Route::get('create', 'LaboresController@create')->name('labores.create');
 
-	Route::post('store', 'LaboresController@store')->name('labores.store');
+		Route::post('store', 'LaboresController@store')->name('labores.store');
 			Route::get('labores/{id}/eliminar', 'LaboresController@eliminar')->name('labores.eliminar');
 
 	});

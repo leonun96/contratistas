@@ -250,6 +250,65 @@
 	</div>
 </div>
 
+
+<div class="modal fade" id="ModalPerfil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form method="post" action="{{ route('usuarios.actualizar', auth()->user()->id) }}">
+				@csrf
+				@method('PUT')
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Editar perfil</h5>
+					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Nombre</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" name="nombre" id="nombre">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Rut</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" name="rut" id="rut">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Correo</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="correo" name="correo">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">AFP</label>
+						<div class="col-sm-10">
+							<select name="afp" id="afp" class="form-control">
+								<option value="Modelo">Modelo</option>
+								<option value="Capital">Capital</option>
+								<option value="Habitat">Habitat</option>
+								<option value="Planvital">Planvital</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-4 col-form-label">Fecha de nacimiento</label>
+						<div class="col-sm-8">
+							<input type="date" class="form-control" id="nacimiento" name="nacimiento">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+					<button class="btn btn-primary" type="submit">Guardar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
 <!-- Bootstrap core JavaScript-->
 <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
