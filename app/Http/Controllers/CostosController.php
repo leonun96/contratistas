@@ -14,7 +14,7 @@ class CostosController extends Controller
 	public function index()
 	{
 		$costos = Costos::all();
-		return view('costos')
+		return view('costos.costos')
 		->with('costos',$costos);
 	}
 }

@@ -59,7 +59,7 @@ Route::group(['middleware' => 'auth'], function() {
 	});
 
 	Route::group(['prefix' => 'costos'], function() {
-		Route::get('/', 'CostosController@index')->name('costos');
+		Route::get('/', 'CostosController@index')->name('costos.index');
 
 	});
 
