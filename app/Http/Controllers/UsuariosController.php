@@ -46,4 +46,31 @@ class UsuariosController extends Controller
 		Flash::error('Usuario eliminado del sistema');
 		return redirect()->back();
 	}
+	public function actualizar(Request $request, $id)
+	{
+		if ($id != auth()->user()->id) {
+			Flash::warning('ErrOr!');
+			return redirect()->back();
+		}
+		$val = $request->validate([
+			'nombre' => 'required',
+			'correo' => 'required|email',
+		],[
+			'nombre.required' => 'Debe ingresar el nombre del usuario',
+			'correo.required' => 'Debe ingresar el correo del usuario',
+			'correo.email' => 'Debe ingresar un correo valido para el usuario',
+		]);
+		Usuarios::find($id)->update($val);
+		return redirect()->back();
+	}
 }
+
+
+
+
+
+
+
+
+
+

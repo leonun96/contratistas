@@ -188,12 +188,12 @@
 						</a>
 						<!-- Dropdown - User Information -->
 						<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-							<a class="dropdown-item" href="#">
+							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#ModalPerfil">
 								<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Perfil
 							</a>
-							<a class="dropdown-item" href="#">
+							{{-- <a class="dropdown-item" href="#">
 								<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>Configuracion
-							</a>
+							</a> --}}
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
 								<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Cerrar Sesion
@@ -267,36 +267,13 @@
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Nombre</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" name="nombre" id="nombre">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Rut</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" name="rut" id="rut">
+							<input type="text" class="form-control" name="nombre" id="nombre" value="{{ auth()->user()->nombre }}">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Correo</label>
 						<div class="col-sm-10">
-							<input type="email" class="form-control" id="correo" name="correo">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">AFP</label>
-						<div class="col-sm-10">
-							<select name="afp" id="afp" class="form-control">
-								<option value="Modelo">Modelo</option>
-								<option value="Capital">Capital</option>
-								<option value="Habitat">Habitat</option>
-								<option value="Planvital">Planvital</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-4 col-form-label">Fecha de nacimiento</label>
-						<div class="col-sm-8">
-							<input type="date" class="form-control" id="nacimiento" name="nacimiento">
+							<input type="email" class="form-control" id="correo" name="correo" value="{{ auth()->user()->correo }}">
 						</div>
 					</div>
 				</div>
