@@ -16,6 +16,7 @@ class CreateCostoDiarioTable extends Migration
         Schema::create('costo_diario', function (Blueprint $table) {
             $table->id();
             $table->string('valor')->nullable();
+            //$table->string('fecha')->nullable();
             $table->string('labor_id')->nullable();
             $table->timestamps();
         });

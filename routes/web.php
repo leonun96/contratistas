@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::group(['prefix' => 'labores'], function() {
 
 		Route::get('/', 'LaboresController@index')->name('labores.index');
+
 			Route::get('create', 'LaboresController@create')->name('labores.create');
 
 		Route::post('store', 'LaboresController@store')->name('labores.store');
@@ -60,6 +61,12 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::group(['prefix' => 'costos'], function() {
 		Route::get('/', 'CostosController@index')->name('costos.index');
+
+		Route::get('create', 'CostosController@create')->name('costos.create');
+
+		Route::post('store', 'CostosController@store')->name('costos.store');
+			Route::get('
+				/{id}/eliminar', 'CostosController@eliminar')->name('costos.eliminar');
 
 	});
 
