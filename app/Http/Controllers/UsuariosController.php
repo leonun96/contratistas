@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Usuarios;
 use Laracasts\Flash\Flash; // SOLO ASI FUNCIONA EL FLASH, NO HAY ALIAS
+use Hash;
 
 class UsuariosController extends Controller
 {
@@ -62,6 +63,20 @@ class UsuariosController extends Controller
 		]);
 		Usuarios::find($id)->update($val);
 		return redirect()->back();
+	}
+	public function updatePass (Request $request, $id)
+	{
+		if ($id != auth()->user()->id) {
+			Flash::warning('ErrOr!');
+			return redirect()->back();
+		}
+		$user = Usuarios::find($id);
+		if (Hash::check($request->password, $user->password)) {
+			// ACTUALIZAR CONTRASEÑA
+		} else {
+			Flash::error('La contraseña ingresada no corresponde a su contraseña actual');
+			return redirect()->back();
+		}
 	}
 }
 
