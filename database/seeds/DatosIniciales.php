@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Usuarios;
+use App\Trabajadores;
 
 class DatosIniciales extends Seeder
 {
@@ -16,6 +17,13 @@ class DatosIniciales extends Seeder
 			'nombre' => 'soporte2',
 			'correo' => 'bastian@correo.cl',
 			'password' => bcrypt('1q2w3e4r'),
+		]);
+		Trabajadores::create([
+			'nombre' => 'Nombre',
+			'rut' => '19.592.944-0',
+			'correo' => 'prueba@gmail.com',
+			'afp' => 'Planvital',
+			'nacimiento' => date('Y-m-d'),
 		]);
 	}
 }
