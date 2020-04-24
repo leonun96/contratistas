@@ -73,6 +73,8 @@ class UsuariosController extends Controller
 		$user = Usuarios::find($id);
 		if (Hash::check($request->password, $user->password)) {
 			// ACTUALIZAR CONTRASEÑA
+			$user->password = bcrypt($request->password);
+			$user->update();
 		} else {
 			Flash::error('La contraseña ingresada no corresponde a su contraseña actual');
 			return redirect()->back();
