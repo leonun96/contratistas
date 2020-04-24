@@ -12,5 +12,10 @@ class DatosIniciales extends Seeder
 			'correo' => 'leandro161996@gmail.com',
 			'password' => bcrypt('1q2w3e4r'),
 		]);
+		Usuarios::create([
+			'nombre' => 'soporte2',
+			'correo' => 'bastian@correo.cl',
+			'password' => bcrypt('1q2w3e4r'),
+		]);
 	}
 }
