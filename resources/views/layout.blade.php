@@ -57,6 +57,9 @@
 		<li class="nav-item">
 			<a class="nav-link" href="{{ route('costos.index') }}"><i class="fas fa-money-bill-alt"></i><span>Costos Diarios</span></a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{ route('empresas.index') }}"><i class="fas fa-archway"></i><span>Empresas</span></a>
+		</li>
 		<!-- Divider -->
 		<hr class="sidebar-divider">
 		<!-- Heading -->

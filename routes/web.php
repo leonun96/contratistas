@@ -70,6 +70,17 @@ Route::group(['middleware' => 'auth'], function() {
 
 	});
 
+	Route::group(['prefix' => 'empresas'], function() {
+		Route::get('/', 'EmpresasController@index')->name('empresas.index');
+
+		Route::get('create', 'EmpresasController@create')->name('empresas.create');
+
+		Route::post('store', 'EmpresasController@store')->name('empresas.store');
+			Route::get('
+				/{id}/eliminar', 'EmpresasController@eliminar')->name('empresas.eliminar');
+
+	});
+
 });
 
 
