@@ -70,11 +70,22 @@ class UsuariosController extends Controller
 			Flash::warning('ErrOr!');
 			return redirect()->back();
 		}
+		$request->validate([
+			'contrasena' => 'required',
+			'password' => 'required|confirmed|min:6',
+		],[
+			'contrasena.required' => 'Debe ingresar su contraseña actual',
+			'password.required' => 'Debe ingresar su contraseña nueva',
+			'password.confirmed' => 'Debe repetir la contraseña nueva',
+			'password.min' => 'La contraseña debe tener al menos 6 caracteres',
+		]);
 		$user = Usuarios::find($id);
 		if (Hash::check($request->password, $user->password)) {
 			// ACTUALIZAR CONTRASEÑA
 			$user->password = bcrypt($request->password);
 			$user->update();
+			Flash::success('La contraseña ha sido actualizada');
+			return redirect()->back();
 		} else {
 			Flash::error('La contraseña ingresada no corresponde a su contraseña actual');
 			return redirect()->back();

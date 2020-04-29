@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('{id}/delete', 'UsuariosController@delete')->name('usuarios.delete');
 
 		Route::put('{id}/actualizar', 'UsuariosController@actualizar')->name('usuarios.actualizar');
+
+		Route::put('{id}/password','UsuariosController@updatePass')->name('usuarios.password');
 	});
 
 	Route::group(['prefix' => 'trabajadores'], function() {
