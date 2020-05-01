@@ -15,7 +15,7 @@ class DatosIniciales extends Seeder
 		]);
 		Usuarios::create([
 			'nombre' => 'soporte2',
-			'correo' => 'bastian@correo.cl',
+			'correo' => 'bas14.masias@gmail.com',
 			'password' => bcrypt('1q2w3e4r'),
 		]);
 		Trabajadores::create([
