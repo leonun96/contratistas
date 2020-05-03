@@ -7,6 +7,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Costos extends Authenticatable
 {
-	protected $table = "costos";
+	protected $table = "costo_diario";
 	protected $guarded = []; 
 }
