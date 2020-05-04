@@ -16,27 +16,34 @@
 							<div class="form-group {{-- row --}}">
 								{{-- <div class="col-sm-6 mb-3 mb-sm-0"> --}}
 								<div class="form-group row">
-								<div class="col-sm-6 mb-3 mb-sm-0">
-									<input type="text" class="form-control form-control-user" name="nombre" id="exampleInputPassword" placeholder="Ingrese Nombre">
+									<div class="col-sm-6 mb-3 mb-sm-0">
+										<input type="text" class="form-control form-control-user" name="nombre" id="exampleInputPassword" placeholder="Ingrese Nombre">
+									</div>
+									<div class="col-sm-6">
+										<input type="text" name="rut" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Ingrese Rut">
+									</div>
 								</div>
-								<div class="col-sm-6">
-									<input type="text" name="rut" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Ingrese Rut">
-								</div>
-							</div>
-								{{-- </div> --}}
-								{{-- <div class="col-sm-6">
-									<input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
-								</div> --}}
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control form-control-user" name="correo" id="exampleInputEmail" placeholder="Direccion de correo">
+								<div class="form-group row">
+									<div class="col-sm-6 mb-3 mb-sm-0">
+										<input type="email" class="form-control form-control-user" name="correo" id="exampleInputEmail" placeholder="Direccion de correo">
+									</div>
+									<div class="col-sm-6">
+										<input type="date" class="form-control form-control-user" name="nacimiento" id="exampleInputPassword" placeholder="Ingrese Fecha">
+									</div>
+								</div>
 							</div>
 							<div class="form-group row">
 								<div class="col-sm-6 mb-3 mb-sm-0">
-									<input type="date" class="form-control form-control-user" name="nacimiento" id="exampleInputPassword" placeholder="Ingrese Fecha">
+									<select name="empresas_id" class="custom-select" required>
+										@foreach($empresas as $empresa)
+										<option value="{{ $empresa->id }}">{{ $empresa->nombre }}</option>
+										@endforeach
+									</select>
 								</div>
 								<div class="col-sm-6" >
-									<select class="form-control" name="afp">
+									<select class="custom-select" name="afp" required>
 										<option>Seleccione AFP</option>
 										<option value="Modelo">Modelo</option>
 										<option value="Capital">Capital</option>

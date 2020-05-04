@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Trabajadores;
+use App\Empresas;
 use Laracasts\Flash\Flash; 
 
 class TrabajadoresController extends Controller
@@ -17,9 +18,11 @@ class TrabajadoresController extends Controller
 		return view('trabajadores')
 		->with('trabajadores',$trabajadores);
 	}
-		public function create ()
+	public function create ()
 	{
-		return view('trabajadores.nuevo');
+		$empresas = Empresas::all();
+		return view('trabajadores.nuevo')
+		->with('empresas', $empresas);
 	}
 
 	public function store (Request $request)
@@ -31,13 +34,15 @@ class TrabajadoresController extends Controller
 			'correo' => 'required|email',
 			'nacimiento' => 'required',
 			'afp' => 'required',
+			'empresas_id' => 'required',
 		],[
 			'nombre.required' => 'Debe ingresar el nombre del trabajador',
 			'rut.required' => 'Debe ingresar el rut de trabajador',
 			'correo.required' => 'Debe ingresar el correo del trabajador',
 			'correo.email' => 'Debe ingresar un correo valido para el trabajador',
 			'nacimiento.required' => 'Debe ingresar la fecha de nacimiento del trabajador',
-			'afp.required' => 'Debe ingresar AFP del trabajador',
+			'afp.required' => 'Debe seleccionar AFP del trabajador',
+			'empresas_id.required' => 'Debe ingresar seleccionar la empresa',
 
 		]);
 		Trabajadores::create($val);
