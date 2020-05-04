@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Trabajadores extends Model
 {
 	protected $table = "trabajadores";
-	protected $guarded = []; 
+	protected $guarded = [];
+	public function empresas ()
+	{
+		return $this->belongsTo('App\Empresas');
+	}
 }

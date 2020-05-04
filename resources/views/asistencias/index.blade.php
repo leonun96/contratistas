@@ -22,22 +22,18 @@
 				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr>
-							<th>Name</th>
-							<th>Position</th>
-							<th>Office</th>
-							<th>Age</th>
-							<th>Start date</th>
-							<th>Salary</th>
+							<th>Trabajador</th>
+							<th>Fecha</th>
+							<th>Hora</th>
+							<th>Empresa</th>
 						</tr>
 					</thead>
 					<tfoot>
 						<tr>
-							<th>Name</th>
-							<th>Position</th>
-							<th>Office</th>
-							<th>Age</th>
-							<th>Start date</th>
-							<th>Salary</th>
+							<th>Trabajador</th>
+							<th>Fecha</th>
+							<th>Hora</th>
+							<th>Empresa</th>
 						</tr>
 					</tfoot>
 					<tbody>

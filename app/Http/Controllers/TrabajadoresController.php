@@ -24,6 +24,7 @@ class TrabajadoresController extends Controller
 
 	public function store (Request $request)
 	{
+		// VALIDAR EMPRESAS_ID
 		$val = $request->validate([
 			'nombre' => 'required',
 			'rut' => 'required',

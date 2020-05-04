@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Asistencia;
 use App\Trabajadores;
+use App\Empresas;
 
 class AsistenciaController extends Controller
 {
@@ -18,7 +19,9 @@ class AsistenciaController extends Controller
 	
 	public function registrar ()
 	{
-		// 
+		$trabajadores = Trabajadores::all();
+		return view('asistencias.registrar')
+		->with('trabajadores', $trabajadores);
 	}
 	
 	public function guardar (Request $request)
