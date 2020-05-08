@@ -9,7 +9,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 	<!-- Page Heading -->
-	<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+	<h1 class="h3 mb-2 text-gray-800">Asistencias</h1>
 	<p class="mb-4">Aqui se puede obserbar los registros de asistencias de los trabajadores registrados. {{-- <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> --}}
 	<!-- DataTales Example -->
 	<div class="card shadow mb-4">

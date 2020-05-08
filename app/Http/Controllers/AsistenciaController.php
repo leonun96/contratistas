@@ -26,6 +26,6 @@ class AsistenciaController extends Controller
 	
 	public function guardar (Request $request)
 	{
-		// 
+		dd($request);
 	}
 }
