@@ -19,7 +19,7 @@ class AsistenciaController extends Controller
 	
 	public function registrar ()
 	{
-		$trabajadores = Trabajadores::all();
+		$trabajadores = Trabajadores::all()->load(['empresas']);
 		return view('asistencias.registrar')
 		->with('trabajadores', $trabajadores);
 	}
