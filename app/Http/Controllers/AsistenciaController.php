@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 use App\Asistencia;
 use App\Trabajadores;
 use App\Empresas;
+use Laracasts\Flash\Flash;
 
 class AsistenciaController extends Controller
 {
+	public static function ausentar_todos ()
+	{
+		// 
+	}
 	public function index ()
 	{
 		$asistencia = Asistencia::all()->load(['trabajadores']);
@@ -26,6 +31,11 @@ class AsistenciaController extends Controller
 	
 	public function guardar (Request $request)
 	{
-		dd($request);
+		if (!isset($request->trabajador)) {
+			Flash::warning('Todos los trabajadores quedarán ausentes');
+			return redirect()->route('asistencia.index');
+		} else {
+			dd($request, count($request->trabajador));
+		}
 	}
 }
