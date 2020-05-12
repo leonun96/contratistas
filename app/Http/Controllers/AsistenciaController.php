@@ -33,9 +33,19 @@ class AsistenciaController extends Controller
 	{
 		if (!isset($request->trabajador)) {
 			Flash::warning('Todos los trabajadores quedarán ausentes');
+			self::ausentar_todos();
 			return redirect()->route('asistencia.index');
-		} else {
-			dd($request, count($request->trabajador));
 		}
+		foreach ($request->trabajador as $key => $value) {
+			$trabajador = Trabajadores::findOrFail($value);
+			Asistencia::create([
+				'trabajadores_id' => $trabajador->id,
+				'empresas_id' => $trabajador->empresas_id,
+				'fecha' => date('Y-m-d'),
+				'hora' => date('H:i:s'),
+			]);
+		}
+		Flash::success('Asistencias registradas');
+		return redirect()->route('asistencia.index');
 	}
 }
