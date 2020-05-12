@@ -5,6 +5,7 @@
 <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 @endsection
 
+{{-- @dd(date('H:i:s')) --}}
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -37,6 +38,14 @@
 						</tr>
 					</tfoot>
 					<tbody>
+						@foreach($asistencia as $asis)
+						<tr>
+							<td>{{ $asis->trabajadores->nombre }}</td>
+							<td>{{ date('d-m-Y', strtotime($asis->fecha)) }}</td>
+							<td>{{ $asis->hora }}</td>
+							<td>{{ $asis->trabajadores->empresas->nombre }}</td>
+						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>

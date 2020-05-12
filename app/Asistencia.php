@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Asistencia extends Model
 {
 	protected $table = "asistencias";
-	protected $protected = [];
+	protected $guarded = [];
 
 	public function trabajadores ()
 	{

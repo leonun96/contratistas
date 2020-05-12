@@ -17,7 +17,7 @@ class AsistenciaController extends Controller
 	}
 	public function index ()
 	{
-		$asistencia = Asistencia::all()->load(['trabajadores']);
+		$asistencia = Asistencia::all()->load(['trabajadores','trabajadores.empresas',]);
 		return view('asistencias.index')
 		->with('asistencia', $asistencia);
 	}
