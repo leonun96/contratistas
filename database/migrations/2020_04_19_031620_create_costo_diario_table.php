@@ -6,29 +6,30 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCostoDiarioTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('costo_diario', function (Blueprint $table) {
-            $table->id();
-            $table->string('valor')->nullable();
-            //$table->string('fecha')->nullable();
-            $table->string('labor_id')->nullable();
-            $table->timestamps();
-        });
-    }
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('costo_diario', function (Blueprint $table) {
+			$table->id();
+			$table->string('valor')->nullable();
+			$table->string('fecha')->nullable();
+			$table->string('labor_id')->nullable();
+			$table->foreignId('empresas_id')->nullable();
+			$table->timestamps();
+		});
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('costo_diario');
-    }
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::dropIfExists('costo_diario');
+	}
 }

@@ -45,7 +45,7 @@
 		</div>
 		<!-- Nav Item - Pages Collapse Menu -->
 		<li class="nav-item">
-			<a class="nav-link" href="{{ route('asistencia.index') }}"><i class="fas fa-address-book"></i><span>Asistencia</span></a>
+			<a class="nav-link" href="{{-- route('asistencia.index') --}}"><i class="fas fa-address-book"></i><span>Pagos</span></a>
 		</li>
 		<!-- Nav Item - Charts -->
 		<li class="nav-item">

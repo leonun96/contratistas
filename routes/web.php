@@ -51,13 +51,13 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('{id}/eliminar', 'TrabajadoresController@eliminar')->name('trabajadores.eliminar');
 	});
 	
-	Route::group(['prefix' => 'asistencia'], function() {
-		Route::get('/', 'AsistenciaController@index')->name('asistencia.index');
+	// Route::group(['prefix' => 'asistencia'], function() {
+	// 	Route::get('/', 'AsistenciaController@index')->name('asistencia.index');
 
-		Route::get('/registrar', 'AsistenciaController@registrar')->name('asistencia.registrar');
+	// 	Route::get('/registrar', 'AsistenciaController@registrar')->name('asistencia.registrar');
 
-		Route::post('/guardar', 'AsistenciaController@guardar')->name('asistencia.guardar');
-	});
+	// 	Route::post('/guardar', 'AsistenciaController@guardar')->name('asistencia.guardar');
+	// });
 
 	Route::group(['prefix' => 'labores'], function() {
 

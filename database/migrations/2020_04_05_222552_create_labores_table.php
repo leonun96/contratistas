@@ -6,27 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateLaboresTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('labores', function (Blueprint $table) {
-            $table->id();
-            $table->string('labor')->nullable();
-            $table->timestamps();
-        });
-    }
+	public function up()
+	{
+		Schema::create('labores', function (Blueprint $table) {
+			$table->id();
+			$table->string('labor')->nullable();
+			$table->foreignId('empresas_id')->nullable();
+			$table->timestamps();
+		});
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('labores');
-    }
+	public function down()
+	{
+		Schema::dropIfExists('labores');
+	}
 }

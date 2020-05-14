@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAsistenciasTable extends Migration
+class CreatePagosTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -13,10 +13,14 @@ class CreateAsistenciasTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('asistencias', function (Blueprint $table) {
+		Schema::create('pagos', function (Blueprint $table) {
 			$table->id();
 			$table->foreignId('trabajadores_id')->nullable();
 			$table->foreignId('empresas_id')->nullable();
+			$table->foreignId('costo_diario')->nullable();
+			$table->bigInteger('cantidad')->nullable();
+			$table->bigInteger('total')->nullable();
+			$table->bigInteger('descuento')->nullable();
 			$table->date('fecha')->nullable();
 			$table->time('hora')->nullable();
 			$table->timestamps();
@@ -30,6 +34,6 @@ class CreateAsistenciasTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('asistencias');
+		Schema::dropIfExists('pagos');
 	}
 }

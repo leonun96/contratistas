@@ -6,13 +6,16 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Anticipos' => $baseDir . '/app/Anticipos.php',
     'App\\Asistencia' => $baseDir . '/app/Asistencia.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Costos' => $baseDir . '/app/Costos.php',
     'App\\Empresas' => $baseDir . '/app/Empresas.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\AsistenciaController' => $baseDir . '/app/Http/Controllers/AsistenciaController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\CostosController' => $baseDir . '/app/Http/Controllers/CostosController.php',
+    'App\\Http\\Controllers\\EmpresasController' => $baseDir . '/app/Http/Controllers/EmpresasController.php',
     'App\\Http\\Controllers\\InicioController' => $baseDir . '/app/Http/Controllers/InicioController.php',
     'App\\Http\\Controllers\\LaboresController' => $baseDir . '/app/Http/Controllers/LaboresController.php',
     'App\\Http\\Controllers\\TrabajadoresController' => $baseDir . '/app/Http/Controllers/TrabajadoresController.php',
@@ -26,6 +29,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Labores' => $baseDir . '/app/Labores.php',
+    'App\\Pagos' => $baseDir . '/app/Pagos.php',
     'App\\Produccion' => $baseDir . '/app/Produccion.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
