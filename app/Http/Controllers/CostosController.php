@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Costos;
+use App\Empresas;
 use App\Labores;
 use Laracasts\Flash\Flash; 
 
@@ -22,8 +23,10 @@ class CostosController extends Controller
 		public function create ()
 	{
 		$labores = Labores::all();
+		$empresas = Empresas::all();
 		return view('costos.nuevo')
-		->with('labores',$labores);
+		->with('labores',$labores)
+		->with('empresas',$empresas);
 
 	}
 
@@ -33,11 +36,13 @@ class CostosController extends Controller
 			'valor' => 'required',
 			'fecha' => 'required',
 			'labor_id' => 'required',
+			'empresas_id' => 'required',
 			
 		],[
 			'valor.required' => 'Debe ingresar un valor',
 			'fecha.required' => 'Debe ingresar una fecha',
-			'labor_id.required' => 'Debe ingresar una fechaseleccionar una labor',
+			'labor_id.required' => 'Debe seleccionar una labor',
+			'empresas_id.required' => 'Debe seleccionar una labor',
 		]);
 		Costos::create($val);
 		Flash::success('Nuevo Costo agregado exitosamente');

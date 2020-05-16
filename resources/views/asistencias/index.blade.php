@@ -27,6 +27,8 @@
 							<th>Fecha</th>
 							<th>Hora</th>
 							<th>Empresa</th>
+							<th>Labor</th>
+							<th>Rendieminto</th>
 						</tr>
 					</thead>
 					<tfoot>
@@ -35,6 +37,8 @@
 							<th>Fecha</th>
 							<th>Hora</th>
 							<th>Empresa</th>
+							<th>Labor</th>
+							<th>Rendieminto</th>
 						</tr>
 					</tfoot>
 					<tbody>

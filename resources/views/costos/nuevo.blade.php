@@ -22,14 +22,22 @@
 								</div> --}}
 							</div>
 							<div class="form-group row">
-								<div class="col-sm-6 mb-3 mb-sm-0">
+								<div class="col-sm-4 mb-3 mb-sm-0">
 									<input type="date" class="form-control form-control-user" name="fecha" id="exampleInputPassword" placeholder="Ingrese fecha">
 								</div>
-								<div class="col-sm-6">
+								<div class="col-sm-4">
 									<select class="form-control" name="labor_id">
 										<option selected="" disabled="">Seleccione Labor</option>
 										@foreach($labores as $labor)
 										<option value="{{ $labor->id }}">{{ $labor->labor }}</option>
+										@endforeach
+									</select>
+								</div>
+								<div class="col-sm-4">
+									<select class="form-control" name="empresas_id">
+										<option selected="" disabled="">Seleccione Empresa</option>
+										@foreach($empresas as $emp)
+										<option value="{{ $emp->id }}">{{ $emp->nombre }}</option>
 										@endforeach
 									</select>
 								</div>
