@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout', ['titulo' => 'Nueva labor'])
 @section('content')
 <div class="container">
 	<div class="card o-hidden border-0 shadow-lg my-5">
@@ -9,20 +9,30 @@
 				<div class="col-lg-7">
 					<div class="p-5">
 						<div class="text-center">
-							<h1 class="h4 text-gray-900 mb-4">Crea un Nuevo Trabajador del sistema</h1>
+							<h1 class="h4 text-gray-900 mb-4">Crea una nueva labor</h1>
 						</div>
 						<form class="user" action="{{ route('labores.store') }}" method="post">
 							@csrf
 							<div class="form-group {{-- row --}}">
 								{{-- <div class="col-sm-6 mb-3 mb-sm-0"> --}}
 								<div class="form-group row">
-								<div class="col-sm-12 mb-3 mb-sm-0">
-									<input type="text" class="form-control form-control-user" name="labor" id="exampleInputPassword" placeholder="Ingrese Nombre Labor">
+									<div class="col-sm-12 mb-3 mb-sm-0">
+										<input type="text" class="form-control form-control-user" name="labor" id="exampleInputPassword" placeholder="Ingrese Nombre Labor">
+									</div>
 								</div>
-								<br>
-								<br>
-								<br>
-
+								<div class="form-group row">
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text" id="basic-addon1">Seleccione empresa</span>
+										</div>
+										<select name="empresas_id" class="custom-select" id="basic-addon1">
+											@foreach($empresas as $empresa)
+											<option value="{{ $empresa->id }}">{{ $empresa->nombre }}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+								<hr>&nbsp
 							<button type="submit" class="btn btn-primary btn-user btn-block">Registrar Labor</button>
 							<hr>
 							{{-- <a href="index.html" class="btn btn-google btn-user btn-block">

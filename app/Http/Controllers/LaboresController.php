@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Labores;
+use App\Empresas;
 use Laracasts\Flash\Flash; 
 
 class LaboresController extends Controller
@@ -18,18 +19,22 @@ class LaboresController extends Controller
 		->with('labores',$labores);
 	}
 
-		public function create ()
+	public function create ()
 	{
-		return view('labores.nuevo');
+		$empresas = Empresas::all();
+		return view('labores.nuevo')
+		->with('empresas', $empresas);
 	}
 
 	public function store (Request $request)
 	{
 		$val = $request->validate([
 			'labor' => 'required',
+			'empresas_id' => 'required',
 			
 		],[
 			'labor.required' => 'Debe ingresar el nombre de la labor',
+			'empresas_id.required' => 'Debe selleccionar la empresa',
 		]);
 		Labores::create($val);
 		Flash::success('Nueva labor creada exitosamente');
