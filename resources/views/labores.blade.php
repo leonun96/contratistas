@@ -13,6 +13,7 @@
 						<tr>
 							<th>#</th>
 							<th>Labor</th>
+							<th>Empresa</th>
 							<th style="text-align: center;">Editar</th>
 							<th style="text-align: center;">Eliminar</th>
 
@@ -24,6 +25,7 @@
 						<tr>
 							<td>{{ $labor->id }}</td>
 							<td>{{ $labor->labor }}</td>
+							<td>{{ $labor->empresas->nombre }}</td>
 							<td style="text-align: center;">
 								<a href="#" class="editar" data-toggle="modal" data-target="#modal" id=""><i class="fas fa-edit"></i></a>
 							</td>

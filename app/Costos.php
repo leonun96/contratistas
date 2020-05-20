@@ -8,5 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Costos extends Authenticatable
 {
 	protected $table = "costo_diario";
-	protected $guarded = []; 
+	protected $guarded = [];
+	public function empresas ()
+	{
+		return $this->belongsTo('App\Empresas');
+	}
 }

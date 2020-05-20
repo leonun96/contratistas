@@ -14,7 +14,7 @@ class LaboresController extends Controller
 {
 	public function index()
 	{
-		$labores = Labores::all();
+		$labores = Labores::all()->load(['empresas']);
 		return view('labores')
 		->with('labores',$labores);
 	}
