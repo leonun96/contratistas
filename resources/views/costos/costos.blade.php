@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout', ['titulo' => 'Costos'])
 @section('content')
 <!-- Begin Page Content -->
 <!-- Begin Page Content -->
@@ -24,7 +24,7 @@
 						<tr>
 							<td>{{ $costo->id }}</td>
 							<td>{{ $costo->valor }}</td>
-							<td>{{ $costo->labor_id }}</td>
+							<td>{{ $costo->labores->labor }}</td>
 							<td style="text-align: center;">
 								<a href="#" class="editar" data-toggle="modal" data-target="#modal" id=""><i class="fas fa-edit"></i></a>
 							</td>

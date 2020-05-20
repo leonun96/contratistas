@@ -22,6 +22,14 @@
 						@endforeach
 					</select>
 				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">Labor</span>
+					</div>
+					<select name="labor_id" class="custom-select" id="labores">
+						<option>Seleccione la labor</option>
+					</select>
+				</div>
 			</form>
 		</div>
 	</div>
@@ -44,6 +52,13 @@
 		})
 		.done(function(response) {
 			console.log(response);
+			$("#labores").empty();
+			$.each(response.labores, function(index, val) {
+				/* iterate through array or object */
+				$("#labores").append(`
+					<option value="${val.id}">${val.labor}</option>
+				`);
+			});
 		})
 		.fail(function() {
 			console.log("error");

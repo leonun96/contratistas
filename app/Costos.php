@@ -13,4 +13,8 @@ class Costos extends Authenticatable
 	{
 		return $this->belongsTo('App\Empresas');
 	}
+	public function labores ()
+	{
+		return $this->belongsTo('App\Labores', 'labor_id');
+	}
 }

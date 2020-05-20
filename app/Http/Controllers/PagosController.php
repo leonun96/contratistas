@@ -28,7 +28,7 @@ class PagosController extends Controller
 	}
 	public function store (Request $request)
 	{
-		// 
+		dd($request);
 	}
 	public function load ($id)
 	{
