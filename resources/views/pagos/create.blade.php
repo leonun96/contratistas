@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout', ['titulo' => 'Ingreso de pagos'])
 @section('content')
 @section('css')
 <!-- Custom styles for this page -->
@@ -15,7 +15,8 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1">Seleccione empresa</span>
 					</div>
-					<select name="empresas_id" class="custom-select" id="basic-addon1">
+					<select name="empresas_id" class="custom-select" id="empresas">
+						<option>Seleccione la empresa</option>
 						@foreach($empresas as $empresa)
 						<option value="{{ $empresa->id }}">{{ $empresa->nombre }}</option>
 						@endforeach
@@ -33,5 +34,24 @@
 <!-- Page level custom scripts -->
 <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
 {{-- $('#dataTable').DataTable(); en el JS listo --}}
+<script type="text/javascript">
+	$("#empresas").change(function(event) {
+		let id = $(this).val();
+		console.log(id);
+		$.ajax({
+			url: `/pagos/data/${id}/load`,
+			type: 'GET',
+		})
+		.done(function(response) {
+			console.log(response);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			// console.log("complete");
+		});
+	});
+</script>
 @endsection
 @endsection

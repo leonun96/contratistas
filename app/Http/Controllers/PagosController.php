@@ -8,6 +8,8 @@ use App\Asistencia;
 use App\Trabajadores;
 use App\Pagos;
 use App\Empresas;
+use App\Labores;
+use App\Costos;
 use Laracasts\Flash\Flash;
 
 class PagosController extends Controller
@@ -27,5 +29,12 @@ class PagosController extends Controller
 	public function store (Request $request)
 	{
 		// 
+	}
+	public function load ($id)
+	{
+		$empresa = Empresas::find($id);
+		$trabajadores = Trabajadores::where('empresas_id', $id)->get();
+		$labores =  Labores::where('empresas_id', $id)->get();
+		return response()->json(['trabajadores' => $trabajadores, 'labores' => $labores]);
 	}
 }

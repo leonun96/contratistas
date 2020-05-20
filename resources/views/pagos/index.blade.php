@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout', ['titulo' => 'Pagos'])
 @section('content')
 @section('css')
 <!-- Custom styles for this page -->
