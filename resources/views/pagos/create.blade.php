@@ -45,7 +45,7 @@
 <script type="text/javascript">
 	$("#empresas").change(function(event) {
 		let id = $(this).val();
-		console.log(id);
+		// console.log(id);
 		$.ajax({
 			url: `/pagos/data/${id}/load`,
 			type: 'GET',
@@ -53,6 +53,7 @@
 		.done(function(response) {
 			console.log(response);
 			$("#labores").empty();
+			$("#labores").append(`<option>Seleccione labor</option>`);
 			$.each(response.labores, function(index, val) {
 				/* iterate through array or object */
 				$("#labores").append(`
@@ -66,6 +67,9 @@
 		.always(function() {
 			// console.log("complete");
 		});
+	});
+	$("#labores").change(function(event) {
+		console.log($(this).val());
 	});
 </script>
 @endsection
