@@ -61,6 +61,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::group(['prefix' => 'pagos'], function() {
 		Route::get('/', 'PagosController@index')->name('pagos.index');
+
+		Route::get('/create', 'PagosController@create')->name('pagos.create');
 	});
 
 	Route::group(['prefix' => 'labores'], function() {

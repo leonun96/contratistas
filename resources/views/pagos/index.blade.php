@@ -16,7 +16,7 @@
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
 			<h6 class="m-0 font-weight-bold text-primary">Registros de Pagos</h6>
-			<h6 class="card-subtitle mb-2 mt-2 text-muted"><a href="#" class="btn btn-primary">Registrar nuevos</a></h6>
+			<h6 class="card-subtitle mb-2 mt-2 text-muted"><a href="{{ route('pagos.create') }}" class="btn btn-primary">Registrar nuevos</a></h6>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
