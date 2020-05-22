@@ -69,7 +69,20 @@
 		});
 	});
 	$("#labores").change(function(event) {
-		console.log($(this).val());
+		let labor = $(this).val();
+		$.ajax({
+			url: `/carga/${labor}/costos`,
+			type: 'GET',
+		})
+		.done(function(response) {
+			console.log(response);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			// console.log("complete");
+		});
 	});
 </script>
 @endsection

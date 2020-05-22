@@ -20,14 +20,13 @@ class CostosController extends Controller
 		->with('costos',$costos);
 	}
 
-		public function create ()
+	public function create ()
 	{
 		$labores = Labores::all();
 		$empresas = Empresas::all();
 		return view('costos.nuevo')
 		->with('labores',$labores)
 		->with('empresas',$empresas);
-
 	}
 
 	public function store (Request $request)
@@ -49,13 +48,19 @@ class CostosController extends Controller
 		return redirect()->back();
 	}
 
-	    public function eliminar($id)
-    {
+	public function eliminar ($id)
+	{
 
-	        $costo = Costos::find($id);
-	        $costo->delete();
-            Flash::success('Costo eliminado');
-            return redirect()->back();
+		$costo = Costos::find($id);
+		$costo->delete();
+		Flash::success('Costo eliminado');
+		return redirect()->back();
 
-    }
+	}
+	public function carga ($id)
+	{
+		// CARGA COSTOS DIARIOS BASADOS EN LABOR, POR AJAX
+		$costos = Costos::where('labor_id', $id)->get();
+		return response()->json($costos);
+	}
 }

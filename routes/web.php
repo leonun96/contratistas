@@ -100,6 +100,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 	});
 
+	Route::get('carga/{id}/costos','CostosController@carga');
 });
 
 
