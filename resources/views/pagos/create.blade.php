@@ -30,6 +30,24 @@
 						<option>Seleccione la labor</option>
 					</select>
 				</div>
+				<div class="col-xs-12 cont-info">
+					<div class="col-xs-12">
+						<div class="col-xs-12 datos" style="margin-top: 15px">
+							<p class="titulo">BUSCADOR DE TRABAJADORES <i class="fa fa-pencil"></i></p>
+							<div class="col-xs-12 col-md-6 form">
+								<p class="col-xs-3 col-md-4 col-lg-4">Nombre trabajador: </p>
+								<div class="col-xs-9 col-md-8 col-lg-8">
+									<input list="trabajadores" class="input" id="lista_tbjdores">
+									<datalist id="trabajadores">
+										@foreach($clientes as $cliente)
+										<option value="{{ $cliente->nombre }}" data-id="{{ $cliente->id }}"></option>
+										@endforeach
+									</datalist>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>
@@ -84,6 +102,41 @@
 			// console.log("complete");
 		});
 	});
+	/* LISTA DE TRABAJADORES */
+	$('#lista_clientes').on('input', function() {
+		let value = $(this).val();
+		let id = $(`#clientes [value ="${value}"]`).data('id');
+		let id2 = $(`#clientes [value ="${value}"]`).attr('data-id');
+		// console.log(id, value, id2);FUNCIONAN LOS TRES!3
+		if (typeof id === 'undefined') {
+			console.log('valor no valido');
+		} else {
+			$.ajax({
+				url: `/ventas/${id}/cliente`,
+				type: 'GET',
+			})
+			.done(function(response) {
+				$("#rut").val(response.rut);
+				let rut = response.rut;
+				// document.getElementById('resultado').innerHTML = response;
+				$.ajax({
+					url: `/${rut}/buscacliente`,
+					type: 'GET',
+				})
+				.done(function(response) {
+					document.getElementById('resultado').innerHTML = response;
+				})
+			})
+			.fail(function() {
+				// console.log("error");
+			})
+			.always(function() {
+				// console.log("complete");
+			});
+			
+		}
+	});
+	/* /LISTA DE CLIENTES */
 </script>
 @endsection
 @endsection
