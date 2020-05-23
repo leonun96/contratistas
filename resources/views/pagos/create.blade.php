@@ -30,23 +30,12 @@
 						<option>Seleccione la labor</option>
 					</select>
 				</div>
-				<div class="col-xs-12 cont-info">
-					<div class="col-xs-12">
-						<div class="col-xs-12 datos" style="margin-top: 15px">
-							<p class="titulo">BUSCADOR DE TRABAJADORES <i class="fa fa-pencil"></i></p>
-							<div class="col-xs-12 col-md-6 form">
-								<p class="col-xs-3 col-md-4 col-lg-4">Nombre trabajador: </p>
-								<div class="col-xs-9 col-md-8 col-lg-8">
-									<input list="trabajadores" class="input" id="lista_tbjdores">
-									<datalist id="trabajadores">
-										@foreach($clientes as $cliente)
-										<option value="{{ $cliente->nombre }}" data-id="{{ $cliente->id }}"></option>
-										@endforeach
-									</datalist>
-								</div>
-							</div>
-						</div>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">Buscador de trabajadores</span>
 					</div>
+					<input list="trabajadores" class="form-control" id="lista_tbjdores" placeholder="Ingrese nombre">
+					<datalist id="trabajadores"></datalist>
 				</div>
 			</form>
 		</div>
@@ -76,6 +65,12 @@
 				/* iterate through array or object */
 				$("#labores").append(`
 					<option value="${val.id}">${val.labor}</option>
+				`);
+			});
+			$("#trabajadores").empty();
+			$.each(response.trabajadores, function(index, val) {
+				$("#trabajadores").append(`
+					<option value="${val.nombre}" data-id="${val.id}"></option>
 				`);
 			});
 		})
@@ -136,7 +131,7 @@
 			
 		}
 	});
-	/* /LISTA DE CLIENTES */
+	/* /LISTA DE TRABAJADORES */
 </script>
 @endsection
 @endsection
