@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout', ['titulo' => 'Inicio'])
 @section('content')
 <!-- Begin Page Content -->
 <div class="container-fluid">
