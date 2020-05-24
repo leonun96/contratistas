@@ -68,6 +68,10 @@
 		</div>
 	</div>
 </div>
+<div id="alerta">
+	<ul id="lista_de_errores">
+	</ul>
+</div>
 
 @section('js')
 <!-- Page level plugins -->
@@ -131,17 +135,17 @@
 	});
 	/* LISTA DE TRABAJADORES */
 	$('#lista_tbjdores').on('input', function() {
-	let value = $(this).val();
-	let idt = $(`#trabajadores [value ="${value}"]`).data('id');
-	let id2 = $(`#trabajadores [value ="${value}"]`).attr('data-id');
-	// console.log(id, value, id2);FUNCIONAN LOS TRES!3
-	if (typeof idt === 'undefined') {
-		console.log('valor no valido');
-	} else {
-		// ASIGNAR ID A INPUT ESCONDIDO
-		$("#trabajadores_id").val(idt);
-	}
-});
+		let value = $(this).val();
+		let idt = $(`#trabajadores [value ="${value}"]`).data('id');
+		let id2 = $(`#trabajadores [value ="${value}"]`).attr('data-id');
+		// console.log(id, value, id2);FUNCIONAN LOS TRES!3
+		if (typeof idt === 'undefined') {
+			console.log('valor no valido');
+		} else {
+			// ASIGNAR ID A INPUT ESCONDIDO
+			$("#trabajadores_id").val(idt);
+		}
+	});
 	/* /LISTA DE TRABAJADORES */
 	$("#enviar_form").click(function(event) {
 		let form = $("#_form").serialize();
@@ -151,11 +155,17 @@
 			data: form,
 		})
 		.done(function(response) {
-			console.log(typeof(response));
+			console.log(response);
 			if (response.hasOwnProperty("error")) {
-				console.log("incluye error");
+				// console.log("incluye error");
+				alerta("danger");
+				$.each(response.error, function(index, val) {
+					$("#lista_de_errores").append(`<li>${val}</li>`);
+				});
 			} else {
-				console.log("no incluye error");
+				// console.log("no incluye error");
+				alerta("success");
+				$("#lista_de_errores").append(`${response.exito}`);
 			}
 		})
 		.fail(function() {
@@ -163,9 +173,15 @@
 		})
 		.always(function() {
 			// console.log("complete");
+			$('#alerta').not('.alert-important').delay(4000).fadeOut(350);
 		});
-		
 	});
+	function alerta (tipo) {
+		$("#alerta").removeClass();
+		$("#alerta").addClass(`alert alert-${tipo}`);
+		$("#alerta").show();
+		$("#lista_de_errores").empty();
+	}
 </script>
 @endsection
 @endsection
