@@ -42,8 +42,18 @@ class PagosController extends Controller
 			'costo_diario.numeric' => 'Debe seleccionar un costo diario',
 			'cantidad.required' => 'Debe seleccionar la cantidad',
 		]);
-		if ($validator->passes()) {
-			return response()->json(['exito'=>'Nuevo registro añadido.']);
+		$costo = Costos::find($request->costo_diario);
+		if ($validator->passes() AND (!is_null($costo))) {
+			$pago = Pagos::create([
+				'trabajadores_id' => $request->trabajadores_id,
+				'empresas_id' => $request->empresas_id,
+				'costo_diario' => $request->costo_diario,
+				'cantidad' => $request->cantidad,
+				'total' => ($costo->valor * $request->cantidad),
+				'fecha' => date('Y-m-d'),
+				'hora' => date('H:i:s'),
+			]);
+			return response()->json(['exito'=>'Nuevo registro añadido.','pago' => $pago]);
 		}
 		return response()->json(['error'=>$validator->errors()->all()]);
 	}

@@ -12,4 +12,8 @@ class Pagos extends Model
 	{
 		return $this->belongsTo('App\Empresas');
 	}
+	public function trabajadores ()
+	{
+		return $this->belongsTo('App\Trabajadores');
+	}
 }
