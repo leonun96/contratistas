@@ -151,13 +151,18 @@
 			data: form,
 		})
 		.done(function(response) {
-			console.log(response);
+			console.log(typeof(response));
+			if (response.hasOwnProperty("error")) {
+				console.log("incluye error");
+			} else {
+				console.log("no incluye error");
+			}
 		})
 		.fail(function() {
-			console.log("error");
+			// console.log("error");
 		})
 		.always(function() {
-			console.log("complete");
+			// console.log("complete");
 		});
 		
 	});

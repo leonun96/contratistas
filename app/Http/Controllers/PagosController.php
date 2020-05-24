@@ -11,6 +11,7 @@ use App\Empresas;
 use App\Labores;
 use App\Costos;
 use Laracasts\Flash\Flash;
+use Validator;
 
 class PagosController extends Controller
 {
@@ -28,8 +29,7 @@ class PagosController extends Controller
 	}
 	public function store (Request $request)
 	{
-		return response()->json($request);
-		$val = $request->validate([
+		$validator = Validator::make($request->all(),[
 			'trabajadores_id' => 'required|numeric',
 			'empresas_id' => 'required|numeric',
 			'costo_diario' => 'required|numeric',
@@ -37,9 +37,15 @@ class PagosController extends Controller
 		],[
 			'trabajadores_id.required' => 'Debe seleccionar un trabajador',
 			'empresas_id.required' => 'Debe seleccionar la empresa',
+			'empresas_id.numeric' => 'Debe seleccionar la empresa',
 			'costo_diario.required' => 'Debe seleccionar un costo diario',
+			'costo_diario.numeric' => 'Debe seleccionar un costo diario',
 			'cantidad.required' => 'Debe seleccionar la cantidad',
 		]);
+		if ($validator->passes()) {
+			return response()->json(['exito'=>'Nuevo registro añadido.']);
+		}
+		return response()->json(['error'=>$validator->errors()->all()]);
 	}
 	public function load ($id)
 	{
