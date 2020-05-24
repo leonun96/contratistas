@@ -9,30 +9,48 @@
 	<div class="card">
 		<h5 class="card-header">Ingreso de Pago/Producción</h5>
 		<div class="card-body">
-			<form method="post" action="">
+			<form method="post" action="#" target="new" class="container-fluid">
 				@csrf
-				<div class="input-group mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="basic-addon1">Seleccione empresa</span>
+				<div class="row">
+					<div class="input-group mb-3 col-6">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1">Seleccione empresa</span>
+						</div>
+						<select name="empresas_id" class="custom-select" id="empresas">
+							<option>Seleccione la empresa</option>
+							@foreach($empresas as $empresa)
+							<option value="{{ $empresa->id }}">{{ $empresa->nombre }}</option>
+							@endforeach
+						</select>
 					</div>
-					<select name="empresas_id" class="custom-select" id="empresas">
-						<option>Seleccione la empresa</option>
-						@foreach($empresas as $empresa)
-						<option value="{{ $empresa->id }}">{{ $empresa->nombre }}</option>
-						@endforeach
-					</select>
+					<div class="input-group mb-3 col-6">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Labor</span>
+						</div>
+						<select name="labor_id" class="custom-select" id="labores">
+							<option>Seleccione la labor</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-group mb-3 col-6">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Costo Diario</span>
+						</div>
+						<select name="costo_diario" class="custom-select" id="costo_diario">
+							<option>Seleccione el costo diario</option>
+						</select>
+					</div>
+					<div class="input-group mb-3 col-6">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Cantidad</span>
+						</div>
+						<input type="number" class="form-control" name="cantidad" min="1">
+					</div>
 				</div>
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
-						<span class="input-group-text" id="basic-addon1">Labor</span>
-					</div>
-					<select name="labor_id" class="custom-select" id="labores">
-						<option>Seleccione la labor</option>
-					</select>
-				</div>
-				<div class="input-group mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="basic-addon1">Buscador de trabajadores</span>
+						<span class="input-group-text">Buscador de trabajadores</span>
 					</div>
 					<input list="trabajadores" class="form-control" id="lista_tbjdores" placeholder="Ingrese nombre">
 					<datalist id="trabajadores"></datalist>
@@ -88,7 +106,12 @@
 			type: 'GET',
 		})
 		.done(function(response) {
-			console.log(response);
+			$("#costo_diario").empty();
+			$.each(response, function(index, val) {
+				$("#costo_diario").append(`
+					<option value="${val.id}">${val.valor}</option>
+				`);
+			});
 		})
 		.fail(function() {
 			console.log("error");
@@ -98,39 +121,6 @@
 		});
 	});
 	/* LISTA DE TRABAJADORES */
-	$('#lista_clientes').on('input', function() {
-		let value = $(this).val();
-		let id = $(`#clientes [value ="${value}"]`).data('id');
-		let id2 = $(`#clientes [value ="${value}"]`).attr('data-id');
-		// console.log(id, value, id2);FUNCIONAN LOS TRES!3
-		if (typeof id === 'undefined') {
-			console.log('valor no valido');
-		} else {
-			$.ajax({
-				url: `/ventas/${id}/cliente`,
-				type: 'GET',
-			})
-			.done(function(response) {
-				$("#rut").val(response.rut);
-				let rut = response.rut;
-				// document.getElementById('resultado').innerHTML = response;
-				$.ajax({
-					url: `/${rut}/buscacliente`,
-					type: 'GET',
-				})
-				.done(function(response) {
-					document.getElementById('resultado').innerHTML = response;
-				})
-			})
-			.fail(function() {
-				// console.log("error");
-			})
-			.always(function() {
-				// console.log("complete");
-			});
-			
-		}
-	});
 	/* /LISTA DE TRABAJADORES */
 </script>
 @endsection
