@@ -16,4 +16,8 @@ class Pagos extends Model
 	{
 		return $this->belongsTo('App\Trabajadores');
 	}
+	public function costos ()
+	{
+		return $this->belongsTo('App\Costos', 'costo_diario');
+	}
 }

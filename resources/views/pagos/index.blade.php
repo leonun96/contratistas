@@ -42,7 +42,16 @@
 						</tr>
 					</tfoot>
 					<tbody>
-						{{--  --}}
+						@foreach($pagos as $pago)
+						<tr>
+							<td>{{ $pago->trabajadores->nombre }}</td>
+							<td>{{ date('d-m-Y', strtotime($pago->fecha)) }}</td>
+							<td>{{ $pago->hora }}</td>
+							<td>{{ $pago->empresas->nombre }}</td>
+							<td>{{ $pago->costos->labores->labor }}</td>
+							<td></td>
+						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>

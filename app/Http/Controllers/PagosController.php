@@ -17,7 +17,7 @@ class PagosController extends Controller
 {
 	public function index ()
 	{
-		$pagos = Pagos::all();
+		$pagos = Pagos::all()->load(['empresas','trabajadores','costos','costos.labores',]);
 		return view('pagos.index')
 		->with('pagos', $pagos);
 	}
