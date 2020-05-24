@@ -65,6 +65,8 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('/create', 'PagosController@create')->name('pagos.create');
 
 		Route::get('data/{id}/load', 'PagosController@load');
+
+		Route::post('store', 'PagosController@store')->name('pagos.store');
 	});
 
 	Route::group(['prefix' => 'labores'], function() {

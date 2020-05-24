@@ -28,6 +28,17 @@ class PagosController extends Controller
 	}
 	public function store (Request $request)
 	{
+		$val = $request->validate([
+			'trabajadores_id' => 'required|numeric',
+			'empresas_id' => 'required|numeric',
+			'costo_diario' => 'required|numeric',
+			'cantidad' => 'required|numeric',
+		],[
+			'trabajadores_id.required' => 'Debe seleccionar un trabajador',
+			'empresas_id.required' => 'Debe seleccionar la empresa',
+			'costo_diario.required' => 'Debe seleccionar un costo diario',
+			'cantidad.required' => 'Debe seleccionar la cantidad',
+		]);
 		dd($request);
 	}
 	public function load ($id)

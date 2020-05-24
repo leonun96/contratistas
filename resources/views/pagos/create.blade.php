@@ -9,7 +9,7 @@
 	<div class="card">
 		<h5 class="card-header">Ingreso de Pago/Producción</h5>
 		<div class="card-body">
-			<form method="post" action="#" target="new" class="container-fluid">
+			<form method="post" action="{{ route('pagos.store') }}" target="new" class="container-fluid">
 				@csrf
 				<div class="row">
 					<div class="input-group mb-3 col-6">
@@ -54,6 +54,14 @@
 					</div>
 					<input list="trabajadores" class="form-control" id="lista_tbjdores" placeholder="Ingrese nombre">
 					<datalist id="trabajadores"></datalist>
+				</div>
+				<div class="input-group mb-3 mt-5">
+					<button type="submit" class="btn btn-success btn-icon-split">
+						<span class="icon text-white-50">
+							<i class="fas fa-check"></i>
+						</span>
+						<span class="text">Guardar</span>
+					</button>
 				</div>
 			</form>
 		</div>
