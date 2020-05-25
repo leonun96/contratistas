@@ -27,6 +27,13 @@ class PagosController extends Controller
 		return view('pagos.create')
 		->with(['empresas' => $empresas, ]);
 	}
+	public function delete ($id)
+	{
+		$pago = Pagos::findOrFail($id);
+		$pago->delete();
+		Flash::error('Registro eliminado exitosamente');
+		return redirect()->back();
+	}
 	public function store (Request $request)
 	{
 		$validator = Validator::make($request->all(),[

@@ -67,6 +67,8 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('data/{id}/load', 'PagosController@load');
 
 		Route::post('store', 'PagosController@store')->name('pagos.store');
+
+		Route::get('{id}/delete','PagosController@delete')->name('pagos.delete');
 	});
 
 	Route::group(['prefix' => 'labores'], function() {
