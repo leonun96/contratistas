@@ -52,7 +52,7 @@ class PagosController extends Controller
 				'total' => ($costo->valor * $request->cantidad),
 				'fecha' => date('Y-m-d'),
 				'hora' => date('H:i:s'),
-			]);
+			])->load(['empresas','trabajadores','costos','costos.labores',]);
 			return response()->json(['exito'=>'Nuevo registro añadido.','pago' => $pago]);
 		}
 		return response()->json(['error'=>$validator->errors()->all()]);

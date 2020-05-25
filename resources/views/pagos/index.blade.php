@@ -28,7 +28,7 @@
 							<th>Hora</th>
 							<th>Empresa</th>
 							<th>Labor</th>
-							<th>Rendieminto</th>
+							<th>Eliminar</th>
 						</tr>
 					</thead>
 					<tfoot>
@@ -38,7 +38,7 @@
 							<th>Hora</th>
 							<th>Empresa</th>
 							<th>Labor</th>
-							<th>Rendieminto</th>
+							<th>Eliminar</th>
 						</tr>
 					</tfoot>
 					<tbody>

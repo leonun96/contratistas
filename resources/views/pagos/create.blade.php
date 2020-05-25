@@ -67,10 +67,28 @@
 			</form>
 		</div>
 	</div>
-</div>
-<div id="alerta">
-	<ul id="lista_de_errores">
-	</ul>
+	<div id="alerta">
+		<ul id="lista_de_errores">
+		</ul>
+	</div>
+	<hr>
+	<div class="card" id="seccion_registros" style="display: none;">
+		<h5 class="card-header">Registros realizados</h5>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Trabajador</th>
+							<th>Empresa</th>
+							<th>Labor</th>
+						</tr>
+					</thead>
+					<tbody id="tbody"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
 
 @section('js')
@@ -149,6 +167,7 @@
 	/* /LISTA DE TRABAJADORES */
 	$("#enviar_form").click(function(event) {
 		let form = $("#_form").serialize();
+		$("#enviar_form").attr('disabled', 'disabled');
 		$.ajax({
 			url: '{{ route('pagos.store') }}',
 			type: 'POST',
@@ -166,6 +185,12 @@
 				// console.log("no incluye error");
 				alerta("success");
 				$("#lista_de_errores").append(`${response.exito}`);
+				$("#seccion_registros").show();
+				$("#tbody").append(`<tr>
+					<td>${response.pago.trabajadores.nombre}</td>
+					<td>${response.pago.empresas.nombre}</td>
+					<td>${response.pago.costos.labores.labor}</td>
+				</tr>`);
 			}
 		})
 		.fail(function() {
@@ -174,6 +199,7 @@
 		.always(function() {
 			// console.log("complete");
 			$('#alerta').not('.alert-important').delay(4000).fadeOut(350);
+			$("#enviar_form").removeAttr('disabled');
 		});
 	});
 	function alerta (tipo) {
