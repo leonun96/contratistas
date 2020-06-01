@@ -47,6 +47,9 @@
 		<li class="nav-item">
 			<a class="nav-link" href="{{ route('pagos.index') }}"><i class="fas fa-address-book"></i><span>Pagos</span></a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{ route('asistencia.index') }}"><i class="fas fa-address-book"></i><span>Asistencia</span></a>
+		</li>
 		<!-- Nav Item - Charts -->
 		<li class="nav-item">
 			<a class="nav-link" href="{{ route('tabajadores.index') }}"><i class="fas fa-users"></i><span>Trabajadores</span></a>
