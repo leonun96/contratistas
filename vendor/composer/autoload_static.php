@@ -488,6 +488,7 @@ class ComposerStaticInite810593d3e8d6f8da8d0fa98fb743d70
         'App\\Http\\Controllers\\EmpresasController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmpresasController.php',
         'App\\Http\\Controllers\\InicioController' => __DIR__ . '/../..' . '/app/Http/Controllers/InicioController.php',
         'App\\Http\\Controllers\\LaboresController' => __DIR__ . '/../..' . '/app/Http/Controllers/LaboresController.php',
+        'App\\Http\\Controllers\\PagosController' => __DIR__ . '/../..' . '/app/Http/Controllers/PagosController.php',
         'App\\Http\\Controllers\\TrabajadoresController' => __DIR__ . '/../..' . '/app/Http/Controllers/TrabajadoresController.php',
         'App\\Http\\Controllers\\UsuariosController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsuariosController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
