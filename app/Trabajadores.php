@@ -12,4 +12,8 @@ class Trabajadores extends Model
 	{
 		return $this->belongsTo('App\Empresas');
 	}
+	public function pagos ()
+	{
+		return $this->hasMany('App\Pagos');
+	}
 }

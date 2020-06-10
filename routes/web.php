@@ -23,6 +23,9 @@ Route::get('logout', 'InicioController@logout')->name('logout');
 Route::group(['middleware' => 'auth'], function() {
 	Route::get('/', 'InicioController@index')->name('index');
 
+	/* ########## BUSCADOR ########## */
+	Route::get('buscador/{string}', 'pagosController@buscador')->name('buscador');
+
 	Route::group(['prefix' => 'usuarios'], function() {
 		Route::get('/', 'UsuariosController@index')->name('usuarios.index');
 		

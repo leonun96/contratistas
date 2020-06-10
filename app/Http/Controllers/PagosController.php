@@ -71,4 +71,8 @@ class PagosController extends Controller
 		$labores =  Labores::where('empresas_id', $id)->get();
 		return response()->json(['trabajadores' => $trabajadores, 'labores' => $labores]);
 	}
+	public function buscador ($string)
+	{
+		$trabajadores = Trabajadores::where('nombre', 'like', '%'.$string.'%')->with(['pagos', 'anticipos'])->get();
+	}
 }
