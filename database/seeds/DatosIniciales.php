@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Usuarios;
 use App\Trabajadores;
+use App\Empresas;
 
 class DatosIniciales extends Seeder
 {
@@ -17,6 +18,10 @@ class DatosIniciales extends Seeder
 			'nombre' => 'soporte2',
 			'correo' => 'bas14.masias@gmail.com',
 			'password' => bcrypt('1q2w3e4r'),
+		]);
+		Empresas::create([
+			'nombre' => 'Empresa',
+			'correo' => 'empresa@empresa.cl',
 		]);
 		Trabajadores::create([
 			'nombre' => 'Nombre',
