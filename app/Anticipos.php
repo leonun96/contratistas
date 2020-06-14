@@ -8,4 +8,8 @@ class Anticipos extends Model
 {
 	protected $table = "anticipos";
 	protected $guarded = [];
+	public function trabajadores ()
+	{
+		return $this->belongsTo('App\Trabajadores');
+	}
 }
