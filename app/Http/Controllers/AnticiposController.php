@@ -28,13 +28,26 @@ class AnticiposController extends Controller
 	
 	public function registrar ()
 	{
+		$empresas = Empresas::all();
 		$trabajadores = Trabajadores::all()->load(['empresas']);
 		return view('anticipos.registrar')
+		->with('empresas', $empresas)
 		->with('trabajadores', $trabajadores);
 	}
 	
 	public function guardar (Request $request)
 	{
-		dd($request);
+		$val = $request->validate([
+			'monto' => 'required',
+			'fecha' => 'required',
+			'trabajadores_id' => 'required',
+		],[
+			'monto.required' => 'Debe ingresar monto',
+			'fecha.required' => 'Debe ingresar fecha',
+			'trabajadores_id.required' => 'Debe ingresar trabajador',
+		]);
+		Anticipos::create($val);
+		Flash::success('Anticipo registrado');
+		return redirect()->back();
 	}
 }
