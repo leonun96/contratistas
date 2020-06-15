@@ -16,4 +16,8 @@ class Trabajadores extends Model
 	{
 		return $this->hasMany('App\Pagos');
 	}
+	public function anticipos ()
+	{
+		return $this->hasMany('App\Anticipos');
+	}
 }

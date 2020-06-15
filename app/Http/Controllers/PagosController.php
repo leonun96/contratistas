@@ -74,5 +74,21 @@ class PagosController extends Controller
 	public function buscador ($string)
 	{
 		$trabajadores = Trabajadores::where('nombre', 'like', '%'.$string.'%')->with(['pagos', 'anticipos'])->get();
+		return response()->json($trabajadores);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
