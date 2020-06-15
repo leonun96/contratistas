@@ -28,6 +28,7 @@ class DatosIniciales extends Seeder
 			'rut' => '19.592.944-0',
 			'correo' => 'prueba@gmail.com',
 			'afp' => 'Planvital',
+			'empresas_id' => 1,
 			'nacimiento' => date('Y-m-d'),
 		]);
 	}
