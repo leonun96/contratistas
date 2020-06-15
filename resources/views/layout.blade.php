@@ -48,7 +48,10 @@
 			<a class="nav-link" href="{{ route('pagos.index') }}"><i class="fas fa-address-book"></i><span>Pagos</span></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="{{ route('asistencia.index') }}"><i class="fas fa-bookmark"></i></i><span>Asistencia</span></a>
+			<a class="nav-link" href="{{ route('asistencia.index') }}"><i class="fas fa-bookmark"></i><span>Asistencia</span></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{ route('anticipos.index') }}"><i class="fas fa-hand-holding-usd"></i><span>Anticipos</span></a>
 		</li>
 		<!-- Nav Item - Charts -->
 		<li class="nav-item">

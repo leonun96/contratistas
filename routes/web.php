@@ -62,6 +62,14 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::post('/guardar', 'AsistenciaController@guardar')->name('asistencia.guardar');
 	});
 
+	Route::group(['prefix' => 'anticipos'], function() {
+		Route::get('/', 'AnticiposController@index')->name('anticipos.index');
+
+		Route::get('/registrar', 'AnticiposController@registrar')->name('anticipos.registrar');
+
+		Route::post('/guardar', 'AnticiposController@guardar')->name('anticipos.guardar');
+	});
+
 	Route::group(['prefix' => 'pagos'], function() {
 		Route::get('/', 'PagosController@index')->name('pagos.index');
 
