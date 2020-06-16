@@ -11,6 +11,15 @@
 		<input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Buscar" id="search" aria-label="Search">
 		<i class="fas fa-search" aria-hidden="true"></i>
 	</form>
+	<hr>
+	<div class="container-fluid">
+		<table id="table_id" hidden class="table table-striped table-bordered display table-hover" style="width:100%">
+			<thead>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
 </div>
 <!-- /.container-fluid -->
 @endsection
