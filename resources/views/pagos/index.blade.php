@@ -50,7 +50,7 @@
 							<td>{{ $pago->empresas->nombre }}</td>
 							<td>{{ $pago->costos->labores->labor }}</td>
 							<td>
-								<a href="{{ route('pagos.delete',$pago->id) }}">Eliminar</a>
+								<a href="{{ route('pagos.delete',$pago->id) }}" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a>
 							</td>
 						</tr>
 						@endforeach

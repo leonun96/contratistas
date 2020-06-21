@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout', ['titulo' => 'Nuevo costo'])
 @section('content')
 <div class="container">
 	<div class="card o-hidden border-0 shadow-lg my-5">
@@ -23,7 +23,7 @@
 							</div>
 							<div class="form-group row">
 								<div class="col-sm-4 mb-3 mb-sm-0">
-									<input type="date" class="form-control form-control-user" name="fecha" id="exampleInputPassword" placeholder="Ingrese fecha">
+									<input type="date" class="form-control form-control-user" name="fecha" id="exampleInputPassword" value="{{ date('Y-m-d') }}" placeholder="Ingrese fecha">
 								</div>
 								<div class="col-sm-4">
 									<select class="form-control" name="labor_id">

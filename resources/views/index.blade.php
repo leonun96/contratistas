@@ -13,10 +13,17 @@
 	</form>
 	<hr>
 	<div class="container-fluid">
-		<table id="table_id" hidden class="table table-striped table-bordered display table-hover" style="width:100%">
+		<table id="table_id" class="table table-striped table-bordered display table-hover" style="width:100%; display: none;">
 			<thead>
+				<tr>
+					<td>Nombre</td>
+					<td>Labor</td>
+					<td>Pago</td>
+					<td>Fecha</td>
+					<td>Total</td>
+				</tr>
 			</thead>
-			<tbody>
+			<tbody id="tbody">
 			</tbody>
 		</table>
 	</div>
@@ -27,21 +34,39 @@
 <script type="text/javascript">
 	$("#search").keyup(function(event) {
 		let val = $("#search").val();
-		console.log(val);
-		$.ajax({
-			url: `/buscador/${val}`,
-			type: 'GET',
-		})
-		.done(function(response) {
-			console.log(response);
-		})
-		.fail(function() {
-			// console.log("error");
-		})
-		.always(function() {
-			// console.log("complete");
-		});
-		
+		if (val == null || val.length == 0) {
+			return false;
+		} else {
+			$.ajax({
+				url: `/buscador/${val}`,
+				type: 'GET',
+			})
+			.done(function(response) {
+				console.log(response);
+				if ($.isEmptyObject(response)) {
+					$("#table_id").show();
+					$("#tbody").empty();
+					$("#tbody").append(`<tr><td colspan="5" align="center">Trabajador no encontrado o no tiene pagos durante los últimos siete días</td></tr>`);
+				} else {
+					$("#table_id").show();
+					$("#tbody").empty();
+					$("#tbody").append(`<tr>
+						<td id="_data">${response.nombre}</td>
+					</tr>`);
+					// $.each(response.pagos, function(index, val) {
+					// 	("#_data").append(`
+					// 		<td>${val.}</td>
+					// 	`);
+					// });
+				}
+			})
+			.fail(function() {
+				// console.log("error");
+			})
+			.always(function() {
+				// console.log("complete");
+			});
+		}
 	});
 </script>
 @endsection

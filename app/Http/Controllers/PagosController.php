@@ -74,13 +74,14 @@ class PagosController extends Controller
 	public function buscador ($string)
 	{
 		$siete = date_create()->modify('- 7 days')->format('Y-m-d');
-		$trabajadores = Trabajadores::where('nombre', 'like', '%'.$string.'%')
+		$trabajadores = Trabajadores::whereHas('pagos', function ($query) use ($siete) {
+				$query->where('fecha', '>=', $siete);
+			})->where('nombre', 'like', '%'.$string.'%')
 			->with(['pagos' => function ($query) use ($siete) {
 				$query->where('fecha', '>=', $siete);
 			}, 'anticipos' => function ($query) use ($siete) {
 				$query->where('fecha', '>=',$siete);
-			}])
-			->get();
+			}])->first();
 		return response()->json($trabajadores);
 	}
 }
