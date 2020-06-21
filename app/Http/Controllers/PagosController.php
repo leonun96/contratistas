@@ -81,7 +81,7 @@ class PagosController extends Controller
 				$query->where('fecha', '>=', $siete);
 			}, 'anticipos' => function ($query) use ($siete) {
 				$query->where('fecha', '>=',$siete);
-			}])->first();
+			}, 'pagos.costos', 'pagos.costos.labores',])->first();
 		return response()->json($trabajadores);
 	}
 }

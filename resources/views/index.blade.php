@@ -50,14 +50,16 @@
 				} else {
 					$("#table_id").show();
 					$("#tbody").empty();
-					$("#tbody").append(`<tr>
-						<td id="_data">${response.nombre}</td>
+					$("#tbody").append(`<tr id="nombre_trabajador">
+						<td colspan="5" align="left">${response.nombre}</td>
 					</tr>`);
-					// $.each(response.pagos, function(index, val) {
-					// 	("#_data").append(`
-					// 		<td>${val.}</td>
-					// 	`);
-					// });
+					$.each(response.pagos, function(index, val) {
+						$("#nombre_trabajador").append(`
+							<tr>
+								<td></td>
+							</tr>
+						`);
+					});
 				}
 			})
 			.fail(function() {

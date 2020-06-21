@@ -28,6 +28,9 @@
 							<th>Hora</th>
 							<th>Empresa</th>
 							<th>Labor</th>
+							<th>Costo</th>
+							<th>Cantidad</th>
+							<th>Total</th>
 							<th>Eliminar</th>
 						</tr>
 					</thead>
@@ -38,6 +41,9 @@
 							<th>Hora</th>
 							<th>Empresa</th>
 							<th>Labor</th>
+							<th>Costo</th>
+							<th>Cantidad</th>
+							<th>Total</th>
 							<th>Eliminar</th>
 						</tr>
 					</tfoot>
@@ -49,6 +55,9 @@
 							<td>{{ $pago->hora }}</td>
 							<td>{{ $pago->empresas->nombre }}</td>
 							<td>{{ $pago->costos->labores->labor }}</td>
+							<td>{{ $pago->costos->valor }}</td>
+							<td>{{ $pago->cantidad }}</td>
+							<td>{{ $pago->total }}</td>
 							<td>
 								<a href="{{ route('pagos.delete',$pago->id) }}" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a>
 							</td>
