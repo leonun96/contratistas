@@ -16,9 +16,9 @@
 		<table id="table_id" class="table table-striped table-bordered display table-hover" style="width:100%; display: none;">
 			<thead>
 				<tr>
-					<td>Nombre</td>
 					<td>Labor</td>
 					<td>Pago</td>
+					<td>Cantidad</td>
 					<td>Fecha</td>
 					<td>Total</td>
 				</tr>
@@ -46,17 +46,25 @@
 				if ($.isEmptyObject(response)) {
 					$("#table_id").show();
 					$("#tbody").empty();
-					$("#tbody").append(`<tr><td colspan="5" align="center">Trabajador no encontrado o no tiene pagos durante los últimos siete días</td></tr>`);
+					$("#tbody").append(`
+					<tr><td>Nombre: </td></tr>
+					<tr>
+						<td colspan="3" align="center">Trabajador no encontrado o no tiene pagos durante los últimos siete días</td>
+					</tr>`);
 				} else {
 					$("#table_id").show();
 					$("#tbody").empty();
-					$("#tbody").append(`<tr id="nombre_trabajador">
+					$("#tbody").append(`<tr>
 						<td colspan="5" align="left">${response.nombre}</td>
 					</tr>`);
 					$.each(response.pagos, function(index, val) {
-						$("#nombre_trabajador").append(`
+						$("#tbody").append(`
 							<tr>
-								<td></td>
+								<td>${val.costos.labores.labor}</td>
+								<td>${val.costos.valor}</td>
+								<td>${val.cantidad}</td>
+								<td>${val.fecha}</td>
+								<td>${val.total}</td>
 							</tr>
 						`);
 					});
