@@ -116,6 +116,8 @@ Route::group(['middleware' => 'auth'], function() {
 	});
 	Route::group(['prefix' => 'reportes'], function() {
 		Route::get('/', 'ExportController@index')->name('reportes.index');
+
+		Route::get('/trabajadores', 'ExportController@trabajadores')->name('reportes.trabajadores');
 	});
 
 	Route::get('carga/{id}/costos','CostosController@carga');
