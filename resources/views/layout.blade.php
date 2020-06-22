@@ -67,6 +67,9 @@
 		<li class="nav-item">
 			<a class="nav-link" href="{{ route('empresas.index') }}"><i class="fas fa-archway"></i><span>Empresas</span></a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{ route('reportes.index') }}"><i class="fas fa-clipboard"></i><span>Reportes</span></a>
+		</li>
 		<!-- Divider -->
 		<hr class="sidebar-divider">
 		<!-- Heading -->

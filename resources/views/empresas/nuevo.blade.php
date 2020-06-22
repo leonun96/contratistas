@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout', ['titulo' => 'Nueva empresas'])
 @section('content')
 <div class="container">
 	<div class="card o-hidden border-0 shadow-lg my-5">

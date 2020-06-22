@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout', ['titulo' => 'Empresas'])
 @section('content')
 
 

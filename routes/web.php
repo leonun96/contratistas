@@ -114,6 +114,9 @@ Route::group(['middleware' => 'auth'], function() {
 				/{id}/eliminar', 'EmpresasController@eliminar')->name('empresas.eliminar');
 
 	});
+	Route::group(['prefix' => 'reportes'], function() {
+		Route::get('/', 'ExportController@index')->name('reportes.index');
+	});
 
 	Route::get('carga/{id}/costos','CostosController@carga');
 });

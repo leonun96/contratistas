@@ -12,6 +12,10 @@ class ExportController extends Controller
 	{
 		/**/
 	}
+	public function index ()
+	{
+		return view('reportes.index');
+	}
 	public function reporte ()
 	{
 		/**/
