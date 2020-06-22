@@ -31,6 +31,6 @@ class ExportController extends Controller
 	}
 	public function trabajadores ()
 	{
-		return Excel::download(new UsersExport, 'users.xlsx');
+		return Excel::download(new UsersExport, 'trabajadores.xlsx');
 	}
 }
