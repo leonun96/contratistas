@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Exports\UsersExport;
+use App\Exports\AsistenciaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Asistencia;
 use App\Trabajadores;
@@ -32,5 +33,9 @@ class ExportController extends Controller
 	public function trabajadores ()
 	{
 		return Excel::download(new UsersExport, 'trabajadores.xlsx');
+	}
+	public function asistencias ()
+	{
+		return Excel::download(new AsistenciaExport, 'trabajadores.xlsx');
 	}
 }

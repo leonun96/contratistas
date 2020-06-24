@@ -40,10 +40,10 @@
 					<tbody>
 						@foreach($anticipos as $anti)
 						<tr>
-							<td>{{ $anti->trabajador->nombre }}</td>
+							<td>{{ $anti->trabajadores->nombre }}</td>
 							<td>{{ $anti->monto }}</td>
 							<td>{{ date('d-m-Y', strtotime($anti->fecha)) }}</td>
-							<td>{{ $anti->trabajador->empresa->nombre }}</td>
+							<td>{{ $anti->trabajadores->empresas->nombre }}</td>
 						</tr>
 						@endforeach
 					</tbody>
