@@ -6,22 +6,19 @@ use App\Asistencia;
 use DB;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
 
-class AsistenciaExport implements FromCollection,WithHeadings
+class AsistenciaExport implements FromView
 {
-	/**
-	* @return \Illuminate\Support\Collection
-	*/
-	public function headings(): array
+	// public function collection()
+	// {
+	// 	return Asistencia::select('trabajadores.nombre','hora','fecha',)->get();
+	// }
+	public function view(): View
 	{
-		return [
-			'nombre',
-			'hora',
-			'fecha',
-		];
-	}
-	public function collection()
-	{
-		return Asistencia::select('trabajadores.nombre','hora','fecha',)->get();
+		return view('reportes.export', [
+			'asistencias' => Asistencia::with(['trabajadores',])->get(),
+		]);
 	}
 }
