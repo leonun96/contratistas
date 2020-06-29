@@ -120,6 +120,7 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('/trabajadores', 'ExportController@trabajadores')->name('reportes.trabajadores');
 
 		Route::get('/asistencias', 'ExportController@asistencias')->name('reportes.asistencias');
+		Route::get('/{mes}/pagos', 'ExportController@pagos')->name('reportes.pagos');
 	});
 
 	Route::get('carga/{id}/costos','CostosController@carga');

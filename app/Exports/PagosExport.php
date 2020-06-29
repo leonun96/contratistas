@@ -17,7 +17,7 @@ class PagosExport implements FromView
 	}
 	public function view(): View
 	{
-		$pagos = Pagos::whereMonth('fecha', $mes)->with(['empresas','trabajadores','costos','costos.labores'])->get();
+		$pagos = Pagos::whereMonth('fecha', $this->mes)->with(['empresas','trabajadores','costos','costos.labores'])->get();
 		return view('reportes.pagos', [
 			'pagos' => $pagos,
 		]);
