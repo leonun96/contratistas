@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Exports\UsersExport;
 use App\Exports\AsistenciaExport;
+use App\Exports\PagosExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Asistencia;
 use App\Trabajadores;
@@ -26,9 +27,9 @@ class ExportController extends Controller
 	{
 		return view('reportes.index');
 	}
-	public function reporte ()
+	public function pagos ($mes)
 	{
-		return Excel::download(new InvoicesExport, 'invoices.xlsx');
+		return Excel::download(new PagosExport($mes), 'pagos.xlsx');
 	}
 	public function trabajadores ()
 	{
