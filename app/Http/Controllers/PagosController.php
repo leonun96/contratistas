@@ -41,6 +41,7 @@ class PagosController extends Controller
 			'empresas_id' => 'required|numeric',
 			'costo_diario' => 'required|numeric',
 			'cantidad' => 'required|numeric',
+			'fecha' => 'required|date',
 		],[
 			'trabajadores_id.required' => 'Debe seleccionar un trabajador',
 			'empresas_id.required' => 'Debe seleccionar la empresa',
@@ -57,7 +58,7 @@ class PagosController extends Controller
 				'costo_diario' => $request->costo_diario,
 				'cantidad' => $request->cantidad,
 				'total' => ($costo->valor * $request->cantidad),
-				'fecha' => date('Y-m-d'),
+				'fecha' => $request->fecha,
 				'hora' => date('H:i:s'),
 			])->load(['empresas','trabajadores','costos','costos.labores',]);
 			return response()->json(['exito'=>'Nuevo registro añadido.','pago' => $pago]);

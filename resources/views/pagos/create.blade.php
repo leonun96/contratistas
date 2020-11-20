@@ -48,13 +48,21 @@
 						<input type="number" class="form-control" name="cantidad" min="1" required>
 					</div>
 				</div>
-				<div class="input-group mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text">Buscador de trabajadores</span>
+				<div class="row">
+					<div class="input-group mb-3 col-6">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Buscador de trabajadores</span>
+						</div>
+						<input list="trabajadores" class="form-control" id="lista_tbjdores" placeholder="Ingrese nombre">
+						<datalist id="trabajadores"></datalist>
+						<input type="hidden" name="trabajadores_id" id="trabajadores_id">
 					</div>
-					<input list="trabajadores" class="form-control" id="lista_tbjdores" placeholder="Ingrese nombre">
-					<datalist id="trabajadores"></datalist>
-					<input type="hidden" name="trabajadores_id" id="trabajadores_id">
+					<div class="input-group mb-3 col-6">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Fecha</span>
+						</div>
+						<input type="date" class="form-control" name="fecha" value="{{ date('Y-m-d') }}">
+					</div>
 				</div>
 				<div class="input-group mb-3 mt-5">
 					<button type="button" class="btn btn-success btn-icon-split" id="enviar_form">
