@@ -47,6 +47,9 @@
 										<option>Seleccione AFP</option>
 										<option value="Modelo">Modelo</option>
 										<option value="Capital">Capital</option>
+										<option value="Habitat">Habitat</option>
+										<option value="Provida">Provida</option>
+										<option value="Plan Vital">Plan Vital</option>
 									</select>
 								</div>
 							</div>

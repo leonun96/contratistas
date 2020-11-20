@@ -24,7 +24,7 @@
 								<th>Correo</th>
 								<th>AFP</th>
 								<th>Empresa</th>
-								<th>Rendimiento</th>
+								{{-- <th>Rendimiento</th> --}}
 								<th>Seleccionar</th>
 							</tr>
 						</thead>
@@ -36,7 +36,7 @@
 								<th>Correo</th>
 								<th>AFP</th>
 								<th>Empresa</th>
-								<th>Rendimiento</th>
+								{{-- <th>Rendimiento</th> --}}
 								<th>Seleccionar</th>
 							</tr>
 						</tfoot>
