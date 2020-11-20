@@ -68,7 +68,7 @@ class PagosController extends Controller
 	public function load ($id)
 	{
 		$empresa = Empresas::find($id);
-		$trabajadores = Trabajadores::where('empresas_id', $id)->get();
+		$trabajadores = Trabajadores::all();
 		$labores =  Labores::where('empresas_id', $id)->get();
 		return response()->json(['trabajadores' => $trabajadores, 'labores' => $labores]);
 	}
