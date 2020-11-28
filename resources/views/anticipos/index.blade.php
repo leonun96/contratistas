@@ -1,4 +1,4 @@
-@extends('layout', ['titulo' => ' Ultimos anticipos registrados'])
+@extends('layout', ['titulo' => ' Ultimos anticipos registrados'])Eliminar@extends('layout', ['titulo' => ' Ultimos anticipos registrados'])
 @section('content')
 @section('css')
 <!-- Custom styles for this page -->
@@ -27,6 +27,7 @@
 							<th>Monto</th>
 							<th>Fecha</th>
 							<th>Empresa</th>
+							<th>Eliminar</th>
 						</tr>
 					</thead>
 					<tfoot>
@@ -35,6 +36,7 @@
 							<th>Monto</th>
 							<th>Fecha</th>
 							<th>Empresa</th>
+							<th>Eliminar</th>
 						</tr>
 					</tfoot>
 					<tbody>
@@ -45,6 +47,9 @@
 							<td>{{ $anti->monto }}</td>
 							<td>{{ date('d-m-Y', strtotime($anti->fecha)) }}</td>
 							<td>{{ $anti->trabajadores->empresas->nombre }}</td>
+							<td>
+								<a href="{{ route('anticipos.eliminar', $anti->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+							</td>
 						</tr>
 						@endif
 						@endforeach

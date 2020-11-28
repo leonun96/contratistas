@@ -66,6 +66,7 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('/', 'AnticiposController@index')->name('anticipos.index');
 
 		Route::get('/registrar', 'AnticiposController@registrar')->name('anticipos.registrar');
+		Route::get('/{id}/eliminar', 'AnticiposController@eliminar')->name('anticipos.eliminar');
 
 		Route::post('/guardar', 'AnticiposController@guardar')->name('anticipos.guardar');
 	});

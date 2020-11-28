@@ -25,6 +25,13 @@ class AnticiposController extends Controller
 		return view('anticipos.index')
 		->with('anticipos', $anticipos);
 	}
+	public function eliminar ($id)
+	{
+		$anticipos = Anticipos::find($id);
+		$anticipos->delete();
+		Flash::success('Anticipo eliminado');
+		return redirect()->route('anticipos.index');
+	}
 	
 	public function registrar ()
 	{
