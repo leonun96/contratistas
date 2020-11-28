@@ -1,4 +1,4 @@
-@extends('layout', ['titulo' => ' Ultimos anticipos registrados'])Eliminar@extends('layout', ['titulo' => ' Ultimos anticipos registrados'])
+@extends('layout', ['titulo' => ' Ultimos anticipos registrados'])
 @section('content')
 @section('css')
 <!-- Custom styles for this page -->
