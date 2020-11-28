@@ -49,6 +49,7 @@
 					</tfoot>
 					<tbody>
 						@foreach($pagos as $pago)
+						@if(!is_null($pago->trabajadores))
 						<tr>
 							<td>{{ $pago->trabajadores->nombre }}</td>
 							<td>{{ date('d-m-Y', strtotime($pago->fecha)) }}</td>
@@ -62,6 +63,7 @@
 								<a href="{{ route('pagos.delete',$pago->id) }}" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a>
 							</td>
 						</tr>
+						@endif
 						@endforeach
 					</tbody>
 				</table>

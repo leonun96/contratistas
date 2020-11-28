@@ -39,12 +39,14 @@
 					</tfoot>
 					<tbody>
 						@foreach($anticipos as $anti)
+						@if(!is_null($anti->trabajadores))
 						<tr>
 							<td>{{ $anti->trabajadores->nombre }}</td>
 							<td>{{ $anti->monto }}</td>
 							<td>{{ date('d-m-Y', strtotime($anti->fecha)) }}</td>
 							<td>{{ $anti->trabajadores->empresas->nombre }}</td>
 						</tr>
+						@endif
 						@endforeach
 					</tbody>
 				</table>

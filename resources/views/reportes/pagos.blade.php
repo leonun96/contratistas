@@ -13,6 +13,7 @@
 	</thead>
 	<tbody>
 	@foreach($pagos as $pago)
+	@if(!is_null($pago->trabajadores))
 		<tr>
 			<td>{{ $pago->trabajadores->nombre }}</td>
 			<td>{{ date('d-m-Y', strtotime($pago->fecha)) }}</td>
@@ -23,6 +24,7 @@
 			<td>{{ $pago->cantidad }}</td>
 			<td>{{ $pago->total }}</td>
 		</tr>
-		@endforeach
+	@endif
+	@endforeach
 	</tbody>
 </table>
