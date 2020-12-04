@@ -18,8 +18,10 @@ class PagosExport implements FromView
 	}
 	public function view(): View
 	{
-		$pagos = Pagos::whereMonth('fecha', $this->mes)->with(['empresas','trabajadores','trabajadores.anticipos','costos','costos.labores'])->get();
 		$pasada = date_create()->modify('-5 days');
+		$pagos = Pagos::whereDate('fecha','>=', $pasada->format('Y-m-d'))
+			->with(['empresas','trabajadores','trabajadores.anticipos','costos','costos.labores'])
+			->get();
 		$anticipos = Anticipos::whereDate('fecha', '>=', $pasada->format('Y-m-d'))->get();
 		return view('reportes.pagos', [
 			'pagos' => $pagos,

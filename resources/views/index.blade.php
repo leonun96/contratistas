@@ -12,7 +12,7 @@
 		<i class="fas fa-search" aria-hidden="true"></i>
 	</form>
 	<hr>
-	<div class="container-fluid">
+	<div class="container-fluid" id="tabla_result">
 		<table id="table_id" class="table table-striped table-bordered display table-hover" style="width:100%; display: none;">
 			<thead>
 				<tr>
@@ -27,10 +27,16 @@
 			</tbody>
 		</table>
 	</div>
+	{{-- <hr> --}}
+	<div class="container-fluid" class="btn-group">
+			<button type="button" class="btn btn-primary text-right" onclick="printDiv('tabla_result','Pagos')">Imprimir</button>
+			{{-- <button type="button" class="btn btn-primary text-right" onclick="saveDiv('tabla_result','Pagos')">Guardar</button> --}}
+	</div>
 </div>
 <!-- /.container-fluid -->
 @endsection
 @section('js')
+{{-- <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script> --}}
 <script type="text/javascript">
 	$("#search").keyup(function(event) {
 		let val = $("#search").val();
@@ -68,6 +74,12 @@
 							</tr>
 						`);
 					});
+					$.each(response.anticipos, function(index, val) {
+						$("#tbody").append(`
+							<td colspan="4" align="left">Anticipo</td>
+							<td>${val.monto}</td>
+						`);
+					});
 				}
 			})
 			.fail(function() {
@@ -78,5 +90,26 @@
 			});
 		}
 	});
+	// function saveDiv(divId, title) {
+	// 	var doc = new jsPDF();
+	// 	doc.fromHTML(`<html><head><title>${title}</title></head><body>` + document.getElementById(divId).innerHTML + `</body></html>`);
+	// 	doc.save('div.pdf');
+	// }
+
+	function printDiv(divId, title) {
+		let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
+		mywindow.document.write(`<html><head><title>${title}</title>`);
+		mywindow.document.write('</head><body >');
+		mywindow.document.write(document.getElementById(divId).innerHTML);
+		mywindow.document.write('</body></html>');
+
+		mywindow.document.close(); // necessary for IE >= 10
+		mywindow.focus(); // necessary for IE >= 10*/
+
+		mywindow.print();
+		mywindow.close();
+
+		return true;
+	}
 </script>
 @endsection
