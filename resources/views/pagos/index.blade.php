@@ -49,7 +49,7 @@
 					</tfoot>
 					<tbody>
 						@foreach($pagos as $pago)
-						@if(!is_null($pago->trabajadores))
+						@if(!is_null($pago->trabajadores) and !is_null($pago->costos) and !is_null($pago->costos->labores))
 						<tr>
 							<td>{{ $pago->trabajadores->nombre }}</td>
 							<td>{{ date('d-m-Y', strtotime($pago->fecha)) }}</td>
