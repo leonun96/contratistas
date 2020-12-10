@@ -72,17 +72,32 @@ class PagosController extends Controller
 		$labores =  Labores::where('empresas_id', $id)->get();
 		return response()->json(['trabajadores' => $trabajadores, 'labores' => $labores]);
 	}
-	public function buscador ($string)
+	public function buscador ($string, $inicio = null, $fin = null)
 	{
 		$siete = date_create()->modify('- 7 days')->format('Y-m-d');
-		$trabajadores = Trabajadores::whereHas('pagos', function ($query) use ($siete) {
-				$query->where('fecha', '>=', $siete);
+		// dd($inicio, $fin);
+		if (is_null($inicio) and is_null($fin)) {
+			$trabajadores = Trabajadores::whereHas('pagos', function ($query) use ($siete) {
+					$query->where('fecha', '>=', $siete);
+				})->where('nombre', 'like', '%'.$string.'%')
+				->with(['pagos' => function ($query) use ($siete) {
+					$query->where('fecha', '>=', $siete);
+				}, 'anticipos' => function ($query) use ($siete) {
+					$query->where('fecha', '>=',$siete);
+				}, 'pagos.costos', 'pagos.costos.labores',])->first();
+		} else {
+			$trabajadores = Trabajadores::whereHas('pagos', function ($query) use ($inicio, $fin, $string) {
+				$query->whereDate('fecha', '>=', $inicio)
+					->whereDate('fecha', '<=', $fin);
 			})->where('nombre', 'like', '%'.$string.'%')
-			->with(['pagos' => function ($query) use ($siete) {
-				$query->where('fecha', '>=', $siete);
-			}, 'anticipos' => function ($query) use ($siete) {
-				$query->where('fecha', '>=',$siete);
+			->with(['pagos' => function ($query) use ($inicio, $fin) {
+				$query->whereDate('fecha', '>=', $inicio)
+					->whereDate('fecha', '<=', $fin);
+			}, 'anticipos' => function ($query) use ($inicio, $fin) {
+				$query->whereDate('fecha', '>=',$inicio)
+					->whereDate('fecha', '<=', $fin);
 			}, 'pagos.costos', 'pagos.costos.labores',])->first();
+		}
 		return response()->json($trabajadores);
 	}
 }

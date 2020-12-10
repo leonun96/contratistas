@@ -1,16 +1,30 @@
 @extends('layout', ['titulo' => 'Inicio'])
 @section('content')
+@php
+$ahora = date_create()->format('Y-m-d');
+$siete = date_create()->modify('- 7 days')->format('Y-m-d');
+@endphp
 <!-- Begin Page Content -->
 <div class="container-fluid">
 	<!-- Page Heading -->
 	<h1 class="h3 mb-4 text-gray-800">Buscador de trabajadores y pagos</h1>
 	<hr>
 	<!-- Search form -->
-	<form class="form-inline active-cyan-4">
-		@csrf
-		<input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Buscar" id="search" aria-label="Search">
-		<i class="fas fa-search" aria-hidden="true"></i>
-	</form>
+	<div class="form-row">
+		<form class="form-inline active-cyan-4 col-6">
+			@csrf
+			<input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Buscar" id="search" aria-label="Search">
+			<i class="fas fa-search" aria-hidden="true"></i>
+		</form>
+		<div class="form-inline col-3">
+			<label class="" for="inicio">Inicio</label>
+			<input type="date" class="form-control" name="inicio" id="inicio" value="{{ $siete }}">
+		</div>
+		<div class="form-inline col-3 ">
+			<label class="" for="fin">Fin</label>
+			<input type="date" class="form-control" name="fin" id="fin" value="{{ $ahora }}">
+		</div>
+	</div>
 	<hr>
 	<div class="container-fluid" id="tabla_result">
 		<table id="table_id" class="table table-striped table-bordered display table-hover" style="width:100%; display: none;">
@@ -40,11 +54,13 @@
 <script type="text/javascript">
 	$("#search").keyup(function(event) {
 		let val = $("#search").val();
+		let inicio = $("#inicio").val();
+		let fin = $("#fin").val();
 		if (val == null || val.length == 0) {
 			return false;
 		} else {
 			$.ajax({
-				url: `/buscador/${val}`,
+				url: `/buscador/${val}/${inicio}/${fin}`,
 				type: 'GET',
 			})
 			.done(function(response) {
