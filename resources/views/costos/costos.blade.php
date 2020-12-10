@@ -21,6 +21,7 @@
 					</thead>
 					<tbody>
 						@foreach($costos as $costo)
+						@if(!is_null($costo->labores))
 						<tr>
 							<td>{{ $costo->id }}</td>
 							<td>{{ $costo->valor }}</td>
@@ -34,6 +35,7 @@
 
 							
 						</tr>
+						@endif
 						@endforeach
 					</tbody>
 				</table>
